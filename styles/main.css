@@ -61,6 +61,12 @@ img {
 	width:100%;
 }
 
+
+/* Currently the paw print. */
+#navbar-logo {
+	width: 25%;
+}
+
 body {
   background-color: rgb(250, 235, 215);
 }
@@ -78,3 +84,5 @@ body {
 li.upcoming-header {
 	background-color: rgb(250, 235, 215);
 }
+
+
