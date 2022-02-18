@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
-    <title>Pet Organization</title>
+    <title>PetPals - Home</title>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,7 +41,7 @@
       <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid">
-            <a class="navbar-brand" href="#home"><i class="bi bi-heart"></i>&nbsp; PetPals </a>
+            <a class="navbar-brand" href="#"><i class="bi bi-heart"></i>&nbsp; PetPals </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarItems" aria-controls="navbarItems" aria-expanded="false" aria-label="Navigation Toggler" >
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -55,7 +55,7 @@
                 </li>
                   <li class="nav-item">
                     <a class="nav-link"
-                       href="#">
+                       href="calendar.html">
                       Calendar
                     </a>
                   </li>
@@ -90,7 +90,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <a href="{% url 'logout' %}">
+                <a href="#">
                   <button type="button" class="btn btn-primary">Yes</button>
                 </a>
               </div>
@@ -157,13 +157,24 @@
           </div>
       </div>
 
-      <footer class="bg-light text-center text-lg-start">
-        <!-- Copyright -->
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-          © 2022 Copyright:
+      <div class="row" style="margin: 0px;">
+        <div class="col-12 bg-white mt-4">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center p-3 my-4 mx-4 border-top border-bottom">
+                <p class="col-md-4 mb-0 text-muted">&copy; 2022 PetPals, Inc</p>
+            
+                <a href="#" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <i class="bi bi-heart"></i>
+                </a>
+            
+                <ul class="nav col-md-4 justify-content-end">
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+                    <li class="nav-item"><a href="calendar.html" class="nav-link px-2 text-muted">Calendar</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Login</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Logout</a></li>
+                </ul>
+            </footer>
         </div>
-        <!-- Copyright -->
-      </footer>
+      </div>
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
