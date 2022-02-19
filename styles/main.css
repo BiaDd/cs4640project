@@ -73,6 +73,12 @@ img {
 	width:100%;
 }
 
+a img:hover {
+	box-shadow: 0 0 16px black;
+	transform: scale(1.1);
+	z-index: 1;
+	transition: .3s;
+}
 
 /* Currently the paw print. */
 #navbar-logo {
