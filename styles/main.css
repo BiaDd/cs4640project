@@ -28,6 +28,18 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+/* Hiding scrollbar, coursesy of: https://stackoverflow.com/a/30680994 */
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+
 body {
 	line-height: 1;
 }
@@ -125,22 +137,30 @@ li.upcoming-header {
 	width: 14.29%
 }
 
-#monthdaynums {
+.monthdaynums {
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
 }
 
-#monthdaynums p {
+.monthdaynums a {
 	padding-bottom: 20px;
+	text-decoration: none;
 	padding-top: 20px;
 	width: 14.28%;
 	text-align: center;
 	border: 2px black;
 }
 
-p.fillerday {
-	opacity: 0.4;
+.monthdaynums > a:hover:not(.fillerday) {
+	background-color: rgba(19, 34, 255, 0.35);
+	border-radius: 6.25%;
+	cursor: pointer;
+}
+
+a.fillerday {
+	opacity: 0.25;
+	cursor: no-drop;
 }
 
 #current {
