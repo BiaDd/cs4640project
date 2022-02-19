@@ -85,4 +85,68 @@ li.upcoming-header {
 	background-color: rgb(250, 235, 215);
 }
 
+/* CALENDAR STYLES*/
+#cal-app-wrapper {
+	background-color: rgb(250, 235, 215);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#outer-calender {
+	margin: 10px;
+}
+
+#month {
+	width: 100%;
+	height: 100px;
+	background-color: white;
+	justify-content: space-between;
+	display: flex;
+	align-items: center;
+}
+
+#month i {
+	cursor: pointer
+}
+
+#date {
+
+}
+
+#days {
+	width: 100%;
+	height: 80px;
+	display: flex;
+	align-items: center;
+}
+
+#days p {
+	width: 14.29%
+}
+
+#monthdaynums {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#monthdaynums p {
+	padding-bottom: 20px;
+	padding-top: 20px;
+	width: 14.28%;
+	text-align: center;
+	border: 2px black;
+}
+
+p.fillerday {
+	opacity: 0.4;
+}
+
+#current {
+	background-color: rgb(250, 235, 215, 0.5);
+}
+
+
+
 

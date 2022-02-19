@@ -8,8 +8,11 @@
 *  URL: https://getbootstrap.com/docs/5.1/examples/footers/
 *  Software License: MIT License
 * 
-*  Calendar built with this tutorial: https://www.youtube.com/watch?v=o1yMqPyYeAo&ab_channel=CodeAndCreate
-
+*   Calendar built with inspiration from this tutorial: https://www.youtube.com/watch?v=o1yMqPyYeAo&ab_channel=CodeAndCreate
+    Used font-awesome for calendar styling: 
+    URL: https://cdnjs.com/libraries/font-awesome?utm_source=cdnjs&utm_medium=cdnjs_link&utm_campaign=cdnjs_library#
+    VERSION: 6.0.0
+    LICENSE: MIT OR CC
 */
 
 -->
@@ -23,6 +26,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>PetPals - Calendar</title>
     <meta charset="utf-8"/>
@@ -100,41 +104,100 @@
               </div>
         </header>
 
-        <div class="p-5 m-3 mb-4 rounded bg-white border">
+        <div class="p-5 m-3 mb-4 rounded bg-white rounded">
             <div class="containre-fluid py-2">
                 <div class="row">
                     <div class="col-12">
-                        <h3 class="fs-2 text-center p-4 bg-white rounded border">&lt;Username&gt;'s Calendar</h3>
+                        <h3 class="fs-2 text-center p-4 rounded border" style="background-color: rgb(250, 235, 215);">&lt;Username&gt;'s Calendar</h3>
                     </div>
                 </div>
                 <div class="row mt-3">
 
                     <div class="col-12 col-md-12 col-lg-4 align-items-center">
+                        <!-- This button will later link to a calendar event form -->
                         <button type="button" class="btn btn-outline-primary my-2">Add New</button>
                         <div class="card" style="width: 18rem;">
                             <ul class="list-group list-group-flush">
-
+                                <!-- These events will be loaded based on the user when we set up DB -->
                                 <li class="upcoming-header list-group-item text-center py-2"><strong>Upcoming</strong></li>
                               
-                                <li class="list-group-item">Zeus Vet Visit<span class="badge bg-primary" style="float: right;">Mar 1</span></li>
+                                <li class="list-group-item">Example Event #1<span class="badge bg-primary" style="float: right;">Mar 1</span></li>
                               
-                                <li class="list-group-item">Trip to Bahamas<span class="badge bg-primary" style="float: right;">Apr 12</span></li>
+                                <li class="list-group-item">Example Event #2<span class="badge bg-primary" style="float: right;">Apr 12</span></li>
                               
                             </ul>
                           </div>
                     </div>
 
                     <div class="col-12 col-md-12 col-lg-8"> 
-                        
+                        <div id="cal-app-wrapper" class="rounded p-5 mt-3 border">
+                            <div id="outer-calendar" class="bg-white p-3 col-12 border">
+                                <div id="month" class="border">
+                                    <i class="fas fa-angle-left prev fs-2 px-4"></i>
+                                    <div id="date">
+                                        <h1 class="fs-3 text-center">February</h1>
+                                        <p class="fs-4 text-center">Friday, Feb 18, 2022</p>
+                                    </div>  
+                                    <i class="fas fa-angle-right next fs-2 px-4"></i>  
+                                </div>
+                                <div id="days" class="fs-3 text-center mt-4">
+                                    <p>Sun</p>
+                                    <p>Mon</p>
+                                    <p>Tue</p>
+                                    <p>Wed</p>
+                                    <p>Thu</p>
+                                    <p>Fri</p>
+                                    <p>Sat</p>
+                                </div>
+                                <div id="monthdaynums" class="fs-4 mb-3">
+                                    <p class="fillerday">30</p>
+                                    <p class="fillerday">31</p>
+                                    <p>1</p>
+                                    <p>2</p>
+                                    <p>3</p>
+                                    <p>4</p>
+                                    <p>5</p>
+                                    <p>6</p>
+                                    <p>7</p>
+                                    <p>8</p>
+                                    <p>9</p>
+                                    <p>10</p>
+                                    <p>11</p>
+                                    <p>12</p>
+                                    <p>13</p>
+                                    <p>14</p>
+                                    <p>15</p>
+                                    <p>16</p>
+                                    <p>17</p>
+                                    <!-- Make sure to set classes with JS for current day -->
+                                    <p id="current" class="border border-primary rounded">18</p>
+                                    <p>19</p>
+                                    <p>20</p>
+                                    <p>21</p>
+                                    <p>22</p>
+                                    <p>23</p>
+                                    <p>24</p>
+                                    <p>25</p>
+                                    <p>26</p>
+                                    <p>27</p>
+                                    <p>28</p>
+                                    <p class="fillerday">1</p>
+                                    <p class="fillerday">2</p>
+                                    <p class="fillerday">3</p>
+                                    <p class="fillerday">4</p>
+                                    <p class="fillerday">5</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>  
             </div>
         </div>
 
-
+        <!-- FOOTER -->
         <div class="row" style="margin: 0px;">
-            <div class="col-12 bg-white mt-4">
+            <div class="col-12 bg-light mt-4">
                 <footer class="d-flex flex-wrap justify-content-between align-items-center p-3 my-4 mx-4 border-top border-bottom">
                     <p class="col-md-4 mb-0 text-muted">&copy; 2022 PetPals, Inc</p>
                 
@@ -144,7 +207,7 @@
                 
                     <ul class="nav col-md-4 justify-content-end">
                         <li class="nav-item"><a href="home.html" class="nav-link px-2 text-muted">Home</a></li>
-                        <li class="nav-item"><a href="#calendar-index" class="nav-link px-2 text-muted">Calendar</a></li>
+                        <li class="nav-item"><a href="#calendar-index" class="nav-link px-2 active">Calendar</a></li>
                         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Login</a></li>
                         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Logout</a></li>
                     </ul>
@@ -152,6 +215,8 @@
             </div>
           </div>
 
+
+          <!-- /* To make calendar work */ -->
           <script src="calendar.js"></script>
 
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
