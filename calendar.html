@@ -7,9 +7,9 @@
 *  Code version: Bootstrapv5.1
 *  URL: https://getbootstrap.com/docs/5.1/examples/footers/
 *  Software License: MIT License
-* 
+*
 *   Calendar built with inspiration from this tutorial: https://www.youtube.com/watch?v=o1yMqPyYeAo&ab_channel=CodeAndCreate
-    Used font-awesome for calendar styling: 
+    Used font-awesome for calendar styling:
     URL: https://cdnjs.com/libraries/font-awesome?utm_source=cdnjs&utm_medium=cdnjs_link&utm_campaign=cdnjs_library#
     VERSION: 6.0.0
     LICENSE: MIT OR CC
@@ -26,6 +26,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/calendar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>PetPals - Calendar</title>
@@ -38,7 +39,7 @@
 
 
   </head>
-    
+
 
     <body>
 
@@ -53,7 +54,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarItems" aria-controls="navbarItems" aria-expanded="false" aria-label="Navigation Toggler" >
                   <span class="navbar-toggler-icon"></span>
                 </button>
-      
+
                 <div class="collapse navbar-collapse" id="navbarItems">
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -71,7 +72,7 @@
                   <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                       <a class="nav-link"
-                        href="#">
+                        href="login.html">
                         <button type="button" class="btn btn-dark">Login</button>
                       </a>
                     </li>
@@ -122,16 +123,16 @@
                             <ul class="list-group list-group-flush">
                                 <!-- These events will be loaded based on the user when we set up DB -->
                                 <li class="upcoming-header list-group-item text-center py-2"><strong>Upcoming</strong></li>
-                              
+
                                 <li class="list-group-item">Example Event #1<span class="badge bg-primary" style="float: right;">Mar 1</span></li>
-                              
+
                                 <li class="list-group-item">Example Event #2<span class="badge bg-primary" style="float: right;">Apr 12</span></li>
-                              
+
                             </ul>
                           </div>
                     </div>
 
-                    <div class="col-12 col-md-12 col-lg-8"> 
+                    <div class="col-12 col-md-12 col-lg-8">
                         <div id="cal-app-wrapper" class="rounded p-5 mt-3 border">
                             <div id="outer-calendar" class="bg-white p-3 col-12 border border-primary rounded">
                                 <div id="month" class="border">
@@ -139,8 +140,8 @@
                                     <div id="date">
                                         <h1 class="fs-3 text-center"></h1>
                                         <p class="fs-4 text-center"></p>
-                                    </div>  
-                                    <i class="bi bi-arrow-right-circle next fs-2 px-4"></i>  
+                                    </div>
+                                    <i class="bi bi-arrow-right-circle next fs-2 px-4"></i>
                                 </div>
                                 <div id="days" class="fs-3 text-center mt-4">
                                     <p>Sun</p>
@@ -156,7 +157,7 @@
                         </div>
                     </div>
 
-                </div>  
+                </div>
             </div>
         </div>
 
@@ -165,15 +166,15 @@
             <div class="col-12 bg-light mt-4">
                 <footer class="d-flex flex-wrap justify-content-between align-items-center p-3 my-4 mx-4 border-top border-bottom">
                     <p class="col-md-4 mb-0 text-muted">&copy; 2022 PetPals, Inc</p>
-                
+
                     <a id="bottom-logo" href="#calendar-index" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                         <img src="images/paw.svg" alt="paw icon" width="30" height="24">
                     </a>
-                
+
                     <ul class="nav col-md-4 justify-content-end" id="fadeshow">
                         <li class="nav-item"><a href="home.html" class="nav-link px-2 text-muted">Home</a></li>
-                        <li class="nav-item"><a href="#calendar-index" class="nav-link px-2 active">Calendar</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Login</a></li>
+                        <li class="nav-item"><a href="calendar.html" class="nav-link px-2 active">Calendar</a></li>
+                        <li class="nav-item"><a href="login.html" class="nav-link px-2 text-muted">Login</a></li>
                         <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Logout</a></li>
                     </ul>
                 </footer>
@@ -186,10 +187,10 @@
 
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
           <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
-      
 
 
-    
+
+
 
     </body>
 
