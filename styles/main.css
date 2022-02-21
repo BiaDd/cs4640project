@@ -73,7 +73,7 @@ img {
 	width:100%;
 }
 
-a img:hover {
+img.card-img-top:hover {
 	box-shadow: 0 0 16px black;
 	transform: scale(1.1);
 	z-index: 1;
@@ -101,4 +101,17 @@ body {
 
 li.upcoming-header {
 	background-color: rgb(250, 235, 215);
+}
+
+/* Footer Page Mobile */
+@media only screen and (max-width: 885px) {
+
+	#bottom-logo {
+		margin-top: 10px;
+	}
+
+	#fadeshow {
+        display: none;
+    }
+
 }
