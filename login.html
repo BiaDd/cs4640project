@@ -45,13 +45,16 @@ https://mdbootstrap.com/docs/standard/forms/overview/
 
               <!-- Email input -->
               <div class="form-outline mb-4">
-                <input type="email" name="username" id="username" class="form-control form-control-lg" />
-                <label class="form-label" for="username">Email Address</label>
+                <input type="email" name="email" id="email" class="form-control form-control-lg" />
+                <label class="form-label" for="email">Email Address</label>
               </div>
     
               <!-- Password input -->
-              <div class="form-outline mb-4">
-                <input type="password" name="password" id="password" class="form-control form-control-lg" />
+              <div class="form-outline mb-4"> 
+              <!-- This regex pattern makes a password have to contain one number one letter one special and 8 chars 
+                   https://stackoverflow.com/a/21456918
+              -->
+                <input type="password" name="password" id="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" class="form-control form-control-lg" />
                 <label class="form-label" for="password">Password</label>
               </div>
     
