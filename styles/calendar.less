@@ -171,6 +171,17 @@ a.fillerday {
 
 /* Calendar Mobile */
 
+#only-year {
+	font-size: 14px;
+	padding: 4px;
+}
+
+@media only screen and (min-width: 600px) {
+	#only-year {
+		visibility: hidden;
+	}
+}
+
 
 
 @media only screen and (max-width: 1100px) {
@@ -245,3 +256,49 @@ a.fillerday {
 	}
 }
 
+
+@media only screen and (max-width: 600px) {
+	div #cal-app-wrapper {
+		padding: 5px!important;
+
+		div {
+
+			div {
+				
+				i.back, i.next {
+					font-size: 18px!important;
+				}
+				#date {
+					h1.fs-3 {
+						font-size: 16px!important;
+					}
+					p.fs-4 {
+						font-size: 0px!important;
+						visibility: hidden;
+					}
+				}
+				
+			}
+
+			#days {
+				height: 20px;
+				margin-top: 5px;
+				p {
+					font-size: 12px;
+				}
+			}
+			.monthdaynums {
+				a {
+					font-size: 14px;
+					padding: 10px;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	#month {
+		height: 50px;
+	}
+}
