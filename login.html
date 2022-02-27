@@ -35,8 +35,9 @@ https://mdbootstrap.com/docs/standard/forms/overview/
 
       <div class="container py-5 mt-5">
         <div class="row py-5 d-flex align-items-center justify-content-center">
+          <h1 class="text-center fs-2">Welcome Back!</h1>
           <div class="col-xl-6 mb-2">
-            <h1 class="text-center fs-2">Welcome Back!</h1>
+
             <img src="images/womananddog.png" class="img-fluid" alt="login page pet image">
           </div>
           <div class="col-xl-5 offset-xl-1">
@@ -45,33 +46,39 @@ https://mdbootstrap.com/docs/standard/forms/overview/
 
               <!-- Email input -->
               <div class="form-outline mb-4">
-                <input type="email" name="email" id="email" class="form-control form-control-lg" />
                 <label class="form-label" for="email">Email Address</label>
+                <input type="email" name="email" id="email" class="form-control form-control-lg" />
+
               </div>
-    
+
               <!-- Password input -->
-              <div class="form-outline mb-4"> 
-              <!-- This regex pattern makes a password have to contain one number one letter one special and 8 chars 
+              <div class="form-outline mb-4">
+              <!-- This regex pattern makes a password have to contain one number one letter one special and 8 chars
                    https://stackoverflow.com/a/21456918
               -->
-                <input type="password" name="password" id="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" class="form-control form-control-lg" />
                 <label class="form-label" for="password">Password</label>
+                <input type="password" name="password" id="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" class="form-control form-control-lg" />
+
               </div>
-    
+
               <div class="d-flex justify-content-around align-items-center mb-4">
                 <!-- Checkbox -->
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" value="" id="rememberMe" />
                   <label class="form-check-label" for="rememberMe"> Remember me </label>
+                  <a class="link-primary" href="#">Forgot password?</a>
                 </div>
-                <a class="link-primary" href="#">Forgot password?</a>
+
               </div>
-    
+
               <!-- Submit button -->
-              <button type="submit" class="btn btn-primary btn-block btn-lg">Sign in</button>
+              <div class="col text-center">
+                  <button type="submit" class="btn btn-primary btn-block btn-lg"><span>Sign in</span></button>
+              </div>
+
 
               <p class="text-center text-muted mt-5 mb-3">First visit? <a href="#" class="fw-bold text-body"><u>Register here</u></a></p>
-    
+
             </form>
           </div>
         </div>
