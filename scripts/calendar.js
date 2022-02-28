@@ -1,3 +1,4 @@
+/* Author: Matthew Morelli */ 
 // Calendar Tutorial: https://www.youtube.com/watch?v=o1yMqPyYeAo&ab_channel=CodeAndCreate
 
 const today = new Date();
