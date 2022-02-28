@@ -1,16 +1,13 @@
 <!--
-/*
 
-*  REFERENCES
-*  Title: <Modal>
-*  Author: <Bootstrap Team>
-*  Date: <11/23/2021>
-*  Code version: <Bootstrapv5.0>
-*  URL: <https://getbootstrap.com/docs/5.0/components/modal/>
-*  Software License: <MIT license>
-*
+Referenced Bootstrap Page
+Referenced Boostrap Masonry page: https://getbootstrap.com/docs/5.0/examples/masonry/
 
-*/
+
+links to site homepage:
+-
+-  https://cs4640.cs.virginia.edu/dxd3vmb/project/home.html
+-
 
 -->
 
@@ -34,11 +31,9 @@
 
 
   </head>
-
-
     <body>
-
       <header id="home">
+        <!--NAVBAR-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-primary">
           <div class="container-fluid">
             <a class="navbar-brand pb-3 pt-2" href="home.html">
@@ -106,7 +101,7 @@
         </div>
       </header>
 
-      <!-- CARDS -->
+      <!-- CARDS refereneced bootstrap cards -->
       <div class="row row-cols-1 row-cols-md-3 g-4 mt-3" style="margin: 0px;">
         <div class="col d-flex justify-content-center">
           <div class="card w-75 text-center">
@@ -134,7 +129,7 @@
         </div>
         <div class="col d-flex justify-content-center">
           <div class="card w-75 text-center">
-            <a href="#"><img src="images/cat1.jpg" class="card-img-top" alt="Go to blog feature, cat with hairnet image"></a>
+            <a href="index.html"><img src="images/cat1.jpg" class="card-img-top" alt="Go to blog feature, cat with hairnet image"></a>
             <div class="card-body">
               <h5 class="card-title">Share</h5>
               <p class="card-text">Share your pet-taking tips with other users by making pages about your pet.</p>
@@ -155,7 +150,7 @@
 
       <!--MASONRY-->
       <div class="container py-2">
-          <div class="row" data-masonry='{"percentPosition": true }'>
+          <div class="row" data-masonry='{"percentPosition": true}'>
               <div class="col-sm-4 col-md-3 py-3">
                   <div class="card border-primary">
                       <div class="card-body">
@@ -226,7 +221,17 @@
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>
-
+      <script>
+        /**
+        Attempting to fix the Masonry issue, it's because the images are not loading fast enough and the cards
+        are generating before an image is? So the fix is to make it wait until all the images are loaded, and then
+        load the masonry. Honestly might scrap the entire masonry thing lol
+        */
+        $(window).load(function(){
+        var $container = $(’#container’);
+        $container.masonry();
+        });
+      </script>
 
     </body>
 
