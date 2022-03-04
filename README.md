@@ -4,7 +4,8 @@ Website to organize pet stuff.
 
 ## Demo
 
-(the uva cloud link host here)
+CS4640 Server URL: https://cs4640.cs.virginia.edu/mjm7ngb/cs4640project/
+Google Cloud URL: https://storage.googleapis.com/pet-pals/cs4640project/index.html
 
 ## Getting Started
 
