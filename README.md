@@ -20,9 +20,7 @@ Google Cloud URL: https://storage.googleapis.com/pet-pals/cs4640project/index.ht
 
 
 ### To Do
-- [ ] Homepage
-- [ ] User Page
-- [ ] Pet Page
-- [ ] CSS
+- [ ] Modify PetPalsController to route through home first, then login page.
+- [ ] Tie database in with session tracking, signup, login, etc.
 
 
