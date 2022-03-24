@@ -1,4 +1,11 @@
 <?php
+/*
+This file will be the script that sets up the database.
+When testing, be sure to add print statements so that if there are no errors,
+you can see that something is happening.
+*/
+
+
 // Register the autoloader
 spl_autoload_register(function($classname) {
     include "classes/$classname.php";
