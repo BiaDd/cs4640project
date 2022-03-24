@@ -43,7 +43,7 @@
       >
         <a
           id="login-top-logo"
-          href="index.html"
+          href="?command=login"
           class="col-4 align-items-center justify-content-center link-dark text-decoration-none"
         >
           <img src="images/paw.svg" alt="paw icon" width="30" height="24" />
@@ -51,20 +51,24 @@
       </nav>
     </header>
 
-    <div class="container py-5 mt-5">
-      <div class="row py-5 d-flex align-items-center justify-content-center">
-        <h1 class="text-center fs-2">Sign up for PetPals</h1>
+    <div class="container py-3 mt-2">
+      <div class="row py-3 d-flex align-items-center justify-content-center">
+        <h1 class="text-center fs-2">Register for PetPals!</h1>
 
         <div class="py-5 d-flex align-items-center justify-content-center">
-          <form method="post">
+          <form action="?command=signup" method="post">
 
             <!-- Username input -->
+            <!-- This regex pattern makes a username have to contrain letters and numbers, 6-20 chars.
+              -->
             <div class="form-outline mb-4">
-              <label class="form-label" for="email">Your username</label>
+              <label class="form-label" for="email">Username</label>
+              <p class="signup-note"><em>Alphanumeric, 6-20 characters.</em></p>
               <input
-                type="username"
+                type="text"
                 name="username"
                 id="username"
+                pattern="[A-Za-z0-9]{6,20}"
                 class="form-control form-control-lg"
                 required
               />
@@ -73,7 +77,7 @@
 
             <!-- Email input -->
             <div class="form-outline mb-4">
-              <label class="form-label" for="email">Your email address</label>
+              <label class="form-label" for="email">Email Address</label>
               <input
                 type="email"
                 name="email"
@@ -88,7 +92,8 @@
               <!-- This regex pattern makes a password have to contain one number one letter one special and 8 chars
                    https://stackoverflow.com/a/21456918
               -->
-              <label class="form-label" for="password">Create a password</label>
+              <label class="form-label" for="password">Create Password</label>
+              <p class="signup-note"><em>8 or more characters, must contain one number, one letter, and one special character.</em></p>
               <input
                 type="password"
                 name="password"
@@ -103,10 +108,10 @@
               <!-- This regex pattern makes a password have to contain one number one letter one special and 8 chars
                    https://stackoverflow.com/a/21456918
               -->
-              <label class="form-label" for="password_check">Confirm your password</label>
+              <label class="form-label" for="password_check">Confirm Password</label>
               <input
                 type="password"
-                name="password"
+                name="password_check"
                 id="password_check"
                 pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
                 class="form-control form-control-lg"
@@ -115,7 +120,7 @@
 
             <p class="text-center text-muted mt-5 mb-3">
               Already have an account?
-              <a href="login.html" class="fw-bold text-body"><u>Login here.</u></a>
+              <a href="?command=login" class="fw-bold text-body"><u>Login here.</u></a>
             </p>
 
             <!-- Submit button -->
