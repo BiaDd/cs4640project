@@ -65,7 +65,7 @@
           <form action="?command=login" method="post">
 
             <!-- Username input -->
-            <!-- This regex pattern makes a username have to contrain only letters, numbers, dashes, underscores, and periods.
+            <!-- This regex pattern makes a username have to contrain only letters and numbers, 6-20 chars.
                    https://stackoverflow.com/q/52884164
               -->
             <div class="form-outline mb-4">
@@ -74,12 +74,14 @@
                 type="username"
                 name="username"
                 id="username"
-                pattern="[A-Za-z0-9\-_\.]{6,20}"
+                pattern="[A-Za-z0-9]{6,20}"
                 class="form-control form-control-lg"
                 required
               />
             </div>
+            
             <!-- Email input -->
+            <!-- Removed email from login, would like to use username.
             <div class="form-outline mb-4">
               <label class="form-label" for="email">Email Address</label>
               <input
@@ -90,6 +92,7 @@
                 required
               />
             </div>
+            -->
 
             <!-- Password input -->
             <div class="form-outline mb-4">
