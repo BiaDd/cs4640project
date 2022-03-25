@@ -64,10 +64,9 @@ class PetPalsController {
                     $_SESSION["email"] = $_POST["email"];
                     $_SESSION["logged_in"] = TRUE;
                     $_SESSION["username"] = $username;
+                    return;
                 }
             }
-
-            return;
         }
            
 
@@ -86,7 +85,7 @@ class PetPalsController {
             $data = $this->db->query("select * from user where username = ?;", "s", $username);
             if ($data === false) { // If there is an error:
                 $error_msg = "Error occurred while logging in.";
-            } else if (!empty($data)) { // If there is an error:
+            } else if (!empty($data)) { // If there is no error:
                 if (password_verify($_POST["password"], $data[0]["password"])) {
                     header("Location: ?command=home");
                     $_SESSION["email"] = $data[0]["email"];

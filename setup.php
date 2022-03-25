@@ -27,5 +27,23 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $db = new mysqli(Config::$db["host"], Config::$db["user"],
                 Config::$db["pass"], Config::$db["database"]);
 
-// Have been using this file to create tables, etc. Erased code after created user table for testing.
-// Everything working well.
+// Need to add table to database:
+
+/*
+$sql = "CREATE TABLE user (
+id INT NOT NULL AUTO_INCREMENT,
+username VARCHAR(255) NOT NULL,
+email VARCHAR(255) NOT NULL,
+password VARCHAR(255) NOT NULL,
+PRIMARY KEY (id)
+)";
+
+if ($db->query($sql) === TRUE) {
+  echo "Table user created successfully";
+} else {
+  echo "Error creating table: " . $db->error;
+}
+
+$db->close();
+
+*/

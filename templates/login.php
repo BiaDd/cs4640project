@@ -62,6 +62,11 @@
           />
         </div>
         <div class="col-xl-5 offset-xl-1">
+          <?php
+            if (!empty($error_msg)) {
+              echo "<div class='alert alert-danger'>$error_msg</div>";
+            }
+          ?>
           <form action="?command=login" method="post">
 
             <!-- Username input -->

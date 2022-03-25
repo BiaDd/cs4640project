@@ -51,13 +51,18 @@
       </nav>
     </header>
 
-    <div class="container py-3 mt-2">
+    <div class="container py-5 mt-2">
       <div class="row py-3 d-flex align-items-center justify-content-center">
         <h1 class="text-center fs-2">Register for PetPals!</h1>
-
+        
         <div class="py-5 d-flex align-items-center justify-content-center">
+          
           <form action="?command=signup" method="post">
-
+          <?php
+            if (!empty($error_msg)) {
+              echo "<div class='alert alert-danger'>$error_msg</div>";
+            }
+          ?>
             <!-- Username input -->
             <!-- This regex pattern makes a username have to contrain letters and numbers, 6-20 chars.
               -->
