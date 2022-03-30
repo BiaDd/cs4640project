@@ -155,8 +155,8 @@ class PetPalsController {
       if (isset($_POST["name"])) {
           $insert = $this->db->query("insert into pet_table (user_id, name, type, breed, age) values (?, ?, ?, ?, ?);",
           "sssss", $id, $_POST["name"], $_POST["type"], $_POST["breed"], $_POST["age"]);
-          header("Location: ?command=userPage"); // why does this redirect to homepage?
+          header("Location: ?command=userpage"); // why does this redirect to homepage?
       }
-      include("templates/userPage.php");
+      
     }
 }
