@@ -23,7 +23,7 @@ class PetPalsController {
             case "userpage":
                 $this->userPage();
                 break;
-            case "addPet":
+            case "addpet":
                 $this->addPet();
                 break;
             case "logout":
@@ -124,39 +124,47 @@ class PetPalsController {
     }
 
     public function home() {
-      /*
+      
         $user = [
             "username" => $_SESSION["username"],
             "email" => $_SESSION["email"]
         ];
-        */
+        
 
         include("templates/home.php");
     }
 
     public function userPage() {
-      $user = [
-          "username" => $_SESSION["username"],
-          "email" => $_SESSION["email"]
-      ];
+        $user = [
+            "username" => $_SESSION["username"],
+            "email" => $_SESSION["email"]
+        ];
 
-      include("templates/userPage.php");
+        include("templates/userPage.php");
     }
 
     private function addPet() {
-      $user = [
-          "username" => $_SESSION["username"],
-          "email" => $_SESSION["email"]
-      ];
-      $username = $this->db->query("select * from user where username = ?;", "s", $user["username"]);
-      $id =  $this->db->query("select id from user where username = ?;", "s", $username);
-
-      // Not sure if need to even check for post since html form has required, so they either input or not
-      if (isset($_POST["name"])) {
-          $insert = $this->db->query("insert into pet_table (user_id, name, type, breed, age) values (?, ?, ?, ?, ?);",
-          "sssss", $id, $_POST["name"], $_POST["type"], $_POST["breed"], $_POST["age"]);
-          header("Location: ?command=userpage"); // why does this redirect to homepage?
-      }
+        $user = [
+            "username" => $_SESSION["username"],
+            "email" => $_SESSION["email"]
+        ];
+        $userID = $this->db->query("select id from user where username = ?;", "s", $user["username"]);
+        if ($userID === false) { // If there is an error:
+            $error_msg = "Error occurred while adding pet.";
+        } else if (!empty($userID)) {
+            $id = $userID[0]["id"];
+            // Not sure if need to even check for post since html form has required, so they either input or not
+            if (isset($_POST["name"])) {
+                $insert = $this->db->query("insert into pet_table (user_id, name, animal, breed, allergies, activities, food, bday) values (?, ?, ?, ?, ?, ?, ?, ?);",
+                "isssssss", $id, $_POST["name"], $_POST["animal"], $_POST["breed"], $_POST["allergies"], $_POST["activities"], $_POST["food"], $_POST["bday"]);
+                if ($insert === false) {
+                    $error_msg = "Error adding pet.";
+                } else {
+                    header("Location: ?command=userpage");
+                    return;
+                }
+            }
+        }
       
     }
 }
