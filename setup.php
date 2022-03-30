@@ -37,6 +37,19 @@ email VARCHAR(255) NOT NULL,
 password VARCHAR(255) NOT NULL,
 PRIMARY KEY (id)
 )";
+*/
+
+/*
+$sql = "CREATE TABLE pet_table (
+    id INT NOT NULL AUTO_INCREMENT,
+    user_id int not null,
+    name VARCHAR(255) NOT NULL,
+    type VARCHAR(255) NOT NULL,
+    breed VARCHAR(255) NOT NULL,
+    age TINYINT DEFAULT 0,
+    PRIMARY KEY (id)
+)";
+*/
 
 if ($db->query($sql) === TRUE) {
   echo "Table user created successfully";
@@ -45,5 +58,3 @@ if ($db->query($sql) === TRUE) {
 }
 
 $db->close();
-
-*/

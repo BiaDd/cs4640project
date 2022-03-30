@@ -20,6 +20,12 @@ class PetPalsController {
             case "calendar":
                 $this->calendar();
                 break;
+            case "userpage":
+                $this->userPage();
+                break;
+            case "addPet":
+                $this->addPet();
+                break;
             case "logout":
                 $this->destroySession();
             case "login":
@@ -34,12 +40,12 @@ class PetPalsController {
         session_unset();
         session_destroy();
     }
-    
+
     public function signup() {
         if (isset($_SESSION["email"])) { // If already logged into session
             header("Location: ?command=home");
             return;
-        
+
         } else if (isset($_POST["email"]) && !empty($_POST["email"]) && !empty($_POST["username"]) && isset($_POST["username"])
         && !empty($_POST["password"]) && isset($_POST["password"]) && !empty($_POST["password_check"]) && isset($_POST["password_check"])) { /// If all fields filled
             $username = strtolower($_POST["username"]); // Makes all alphabetical characters in username lowercase.
@@ -68,7 +74,7 @@ class PetPalsController {
                 }
             }
         }
-           
+
 
         include("templates/signup.php");
 
@@ -80,14 +86,14 @@ class PetPalsController {
             header("Location: ?command=home");
             return;
         } else if (!empty($_POST["username"]) && isset($_POST["username"]) && !empty($_POST["password"]) && isset($_POST["password"])) { /// validate the email coming in
-            
+
             $username = strtolower($_POST["username"]);
             $data = $this->db->query("select * from user where username = ?;", "s", $username);
             if ($data === false) { // If there is an error:
                 $error_msg = "Error occurred while logging in.";
             } else if (!empty($data)) { // If there is no error:
                 if (password_verify($_POST["password"], $data[0]["password"])) {
-                    header("Location: ?command=home");
+                    header("Location: ?command=userpage");
                     $_SESSION["email"] = $data[0]["email"];
                     $_SESSION["username"] = $data[0]["username"];
                     $_SESSION["logged_in"] = TRUE;
@@ -103,7 +109,7 @@ class PetPalsController {
         include "templates/login.php";
     }
 
-    
+
 
     // Display the calendar template
     public function calendar() {
@@ -112,17 +118,45 @@ class PetPalsController {
             "username" => $_SESSION["username"],
             "email" => $_SESSION["email"]
         ];
-        
+
 
         include("templates/calendar.php");
     }
 
     public function home() {
+      /*
         $user = [
             "username" => $_SESSION["username"],
             "email" => $_SESSION["email"]
         ];
+        */
 
         include("templates/home.php");
+    }
+
+    public function userPage() {
+      $user = [
+          "username" => $_SESSION["username"],
+          "email" => $_SESSION["email"]
+      ];
+
+      include("templates/userPage.php");
+    }
+
+    private function addPet() {
+      $user = [
+          "username" => $_SESSION["username"],
+          "email" => $_SESSION["email"]
+      ];
+      $username = $this->db->query("select * from user where username = ?;", "s", $user["username"]);
+      $id =  $this->db->query("select id from user where username = ?;", "s", $username);
+
+      // Not sure if need to even check for post since html form has required, so they either input or not
+      if (isset($_POST["name"])) {
+          $insert = $this->db->query("insert into pet_table (user_id, name, type, breed, age) values (?, ?, ?, ?, ?);",
+          "sssss", $id, $_POST["name"], $_POST["type"], $_POST["breed"], $_POST["age"]);
+          header("Location: ?command=userPage"); // why does this redirect to homepage?
+      }
+      include("templates/userPage.php");
     }
 }
