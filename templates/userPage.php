@@ -95,10 +95,43 @@
         </div>
     </header>
 
+    
     <div>
-        <a href="#" class="btn btn-dark m-4" role="button" data-bs-toggle="modal" data-bs-target="#addModal">
+      <div class="row justify-content-center">
+        <div class="col-8 my-3">
+          <h1 class="fs-2 text-center p-4 rounded border" style="background-color: white;">
+            <?= $user["username"] ?>'s Pets</h1>
+          </div>
+      </div>
+      <div class="row justify-content-center">
+        <a href="#" class="col-2 btn btn-dark m-4" role="button" data-bs-toggle="modal" data-bs-target="#addModal">
             Add Pet
         </a>
+      </div>
+
+      <!-- 
+        The following section loads either an error message if the user has no pets (or some error occurs)
+        or it uses a list generated in userPage() that contains the names of pets.
+        I expect that we will figure out a way to reformat this to include more pet data, or even
+        use modals and a new function in PetPalsController to show more info onclick.
+      -->
+      <?php
+      if (!empty($load_msg)) {
+        echo "<div class='row justify-content-center'>";
+        echo "<div class='col-8 text-center alert alert-danger w-50'>$load_msg</div>";
+        echo "</div>";
+      } else if (!empty($petNames)) {
+        echo "<div class='row justify-content-center'>
+              <div class='col-lg-4'>
+              <ul class='list-group mx-2'>";
+        foreach ($petNames as $name) {
+          echo "<a class='list-group-item list-group-item-action text-center' href='#'>$name</a>";
+        }
+        echo "</ul>
+              </div>
+              </div>";
+      }
+      ?>
     </div>
 
     <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">

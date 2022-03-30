@@ -139,6 +139,24 @@ class PetPalsController {
             "username" => $_SESSION["username"],
             "email" => $_SESSION["email"]
         ];
+        $userID = $this->db->query("select id from user where username = ?;", "s", $user["username"]);
+        if ($userID === false) { // If there is an error:
+            $load_msg = "Error occurred while loading pets.";
+        } else if (!empty($userID)) {
+            $id = $userID[0]["id"];
+            // This loads the pets associated with the current user from the database
+            $pets = $this->db->query("select * from pet where user_id = ?;", "i", $id);
+            if ($pets === false) {
+                $load_msg = "Error occurred while loading pets.";
+            } else if (empty($pets)) { // If the user has no pets
+                $load_msg = "You have not added any pets to your profile.";
+            } else if (!empty($pets)) { // If the user does have pets, load their
+                $petNames = [];         // names into a list and send it to the view.
+                foreach ($pets as $i => $p) {
+                    array_push($petNames, $pets[$i]["name"]);
+                }
+            }
+        }
 
         include("templates/userPage.php");
     }
@@ -155,7 +173,7 @@ class PetPalsController {
             $id = $userID[0]["id"];
             // Not sure if need to even check for post since html form has required, so they either input or not
             if (isset($_POST["name"])) {
-                $insert = $this->db->query("insert into pet_table (user_id, name, animal, breed, allergies, activities, food, bday) values (?, ?, ?, ?, ?, ?, ?, ?);",
+                $insert = $this->db->query("insert into pet (user_id, name, animal, breed, allergies, activities, food, bday) values (?, ?, ?, ?, ?, ?, ?, ?);",
                 "isssssss", $id, $_POST["name"], $_POST["animal"], $_POST["breed"], $_POST["allergies"], $_POST["activities"], $_POST["food"], $_POST["bday"]);
                 if ($insert === false) {
                     $error_msg = "Error adding pet.";
