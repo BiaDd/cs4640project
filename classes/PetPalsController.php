@@ -26,6 +26,9 @@ class PetPalsController {
             case "addpet":
                 $this->addPet();
                 break;
+            case "editpet":
+                $this->editPetInfo();
+                break;
             case "logout":
                 $this->destroySession();
             case "login":
@@ -124,12 +127,12 @@ class PetPalsController {
     }
 
     public function home() {
-      
+
         $user = [
             "username" => $_SESSION["username"],
             "email" => $_SESSION["email"]
         ];
-        
+
 
         include("templates/home.php");
     }
@@ -183,6 +186,37 @@ class PetPalsController {
                 }
             }
         }
-      
     }
+
+    // I think we can combine this and the add function with an if statement that checks if the pet exists in the table?
+
+    private function editPetInfo() { // function to edit information of pet
+      $user = [
+          "username" => $_SESSION["username"],
+          "email" => $_SESSION["email"]
+      ];
+      $userID = $this->db->query("select id from user where username = ?;", "s", $user["username"]);
+      if ($userID === false) { // If there is an error:
+          $error_msg = "Error occurred while editing pet info.";
+      } else if (!empty($userID)) {
+          $id = $userID[0]["id"];
+          // Not sure if need to even check for post since html form has required, so they either input or not
+          if (isset($_POST["ename"])) {
+
+              $edit = $this->db->query(
+                "update pet set name= ?, animal= ?, breed= ?, allergies= ?, activities= ?, food= ?, bday= ? where id = ?;",
+                "sssssssi",
+                $_POST["ename"] , $_POST["eanimal"], $_POST["ebreed"], $_POST["eallergies"], $_POST["eactivities"], $_POST["efood"], $_POST["ebday"], $_POST["petid"]);
+
+              if ($edit === false) {
+                  $error_msg = "Error editing pet info.";
+              } else {
+                  header("Location: ?command=userpage");
+                  return;
+              }
+          }
+      }
+
+    }
+
 }

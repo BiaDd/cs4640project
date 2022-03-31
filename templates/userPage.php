@@ -122,7 +122,7 @@
         echo "</div>";
       } else if (!empty($petNames)) {
 
-
+        //print_r($pets);
         echo "
         <div class='row justify-content-center'>
         <div class='accordion w-50 col-6' id='accordionExample'>";
@@ -130,6 +130,7 @@
 
           /*the form for the drop down is a little weird, for some reason when <fieldset>
            tag is used, it value class does not fill in text boxes??*/
+
           echo "
           <div class='accordion-item'>
             <h2 class='accordion-header' id='$p[id]'>
@@ -139,11 +140,12 @@
             </h2>
             <div id='$p[name]' class='accordion-collapse collapse' aria-labelledby='$p[id]' data-bs-parent='#accordionExample'>
               <div class='accordion-body'>
-              <form action='?command=addpet' method='post'>
-                      <label for='fname' class='form-label'>Name:</label><br>
-                      <input class='form-control' type='text' id='fname' name='fname' value='$p[name]' maxlength='255' required><br><br>
-                      <label for='animal' class='form-label'>Animal Type:</label><br>
-                      <select class='form-select' name='animal' id='animal' required>
+              <form action='?command=editpet' method='post'>
+                      <input type='hidden' name='petid' value='$p[id]'>
+                      <label for='ename' class='form-label'>Name:</label><br>
+                      <input class='form-control' type='text' id='ename' name='ename' value='$p[name]' maxlength='255' required><br><br>
+                      <label for='eanimal' class='form-label'>Animal Type:</label><br>
+                      <select class='form-select' name='eanimal' id='eanimal' required>
                           <option selected value='$p[animal]'>$p[animal]</option>
                           <option value='dog'>Dog</option>
                           <option value='cat'>Cat</option>
@@ -153,21 +155,21 @@
                           <option value='rabbit'>Rabbit</option>
                           <option value='other'>Other</option>
                       </select><br><br>
-                      <label for='breed' class='form-label'>Breed/Type:</label><br>
-                      <input class='form-control' type='text' id='breed' name='breed' maxlength='255' value='$p[breed]'
+                      <label for='ebreed' class='form-label'>Breed/Type:</label><br>
+                      <input class='form-control' type='text' id='ebreed' name='ebreed' maxlength='255' value='$p[breed]'
                           required><br><br>
-                      <label for='activities' class='form-label'>Favorite Activities:</label><br>
-                      <input class='form-control' type='text' id='activities' name='activities' maxlength='255' value='$p[activities]'
+                      <label for='eactivities' class='form-label'>Favorite Activities:</label><br>
+                      <input class='form-control' type='text' id='eactivities' name='eactivities' maxlength='255' value='$p[activities]'
                           required><br><br>
-                      <label for='allergies' class='form-label'>Allergies:</label><br>
-                      <input class='form-control' type='text' id='allergies' name='allergies' maxlength='255' value='$p[allergies]'
+                      <label for='eallergies' class='form-label'>Allergies:</label><br>
+                      <input class='form-control' type='text' id='eallergies' name='eallergies' maxlength='255' value='$p[allergies]'
                           required><br><br>
-                      <label for='food' class='form-label'>Preferred Food(s):</label><br>
-                      <input class='form-control' type='text' id='food' name='food' maxlength='255' value='$p[food]'
+                      <label for='efood' class='form-label'>Preferred Food(s):</label><br>
+                      <input class='form-control' type='text' id='efood' name='efood' maxlength='255' value='$p[food]'
                           required><br><br>
-                      <label for='bday' class='form-label'>Birthday:</label><br>
+                      <label for='ebday' class='form-label'>Birthday:</label><br>
                       <input class='form-control' type='date' min='1950-01-01' max='2099-12-31' value='$p[bday]'
-                          class='form-control' id='bday' name='bday' required /> <br />
+                          class='form-control' id='ebday' name='ebday' required /> <br />
 
                   <button type='submit' class='btn btn-primary text-white'>Edit</button>
               </form>
