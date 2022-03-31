@@ -95,7 +95,7 @@
         </div>
     </header>
 
-    
+
     <div>
       <div class="row justify-content-center">
         <div class="col-8 my-3">
@@ -109,7 +109,7 @@
         </a>
       </div>
 
-      <!-- 
+      <!--
         The following section loads either an error message if the user has no pets (or some error occurs)
         or it uses a list generated in userPage() that contains the names of pets.
         I expect that we will figure out a way to reformat this to include more pet data, or even
@@ -121,18 +121,80 @@
         echo "<div class='col-8 text-center alert alert-danger w-50'>$load_msg</div>";
         echo "</div>";
       } else if (!empty($petNames)) {
+
+
+        echo "
+        <div class='row justify-content-center'>
+        <div class='accordion w-50 col-6' id='accordionExample'>";
+        foreach ($pets as $p) { // might want to change this name later
+
+          /*the form for the drop down is a little weird, for some reason when <fieldset>
+           tag is used, it value class does not fill in text boxes??*/
+          echo "
+          <div class='accordion-item'>
+            <h2 class='accordion-header' id='$p[id]'>
+              <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#$p[name]' aria-expanded='false' aria-controls='$p[name]'>
+                $p[name]
+              </button>
+            </h2>
+            <div id='$p[name]' class='accordion-collapse collapse' aria-labelledby='$p[id]' data-bs-parent='#accordionExample'>
+              <div class='accordion-body'>
+              <form action='?command=addpet' method='post'>
+                      <label for='fname' class='form-label'>Name:</label><br>
+                      <input class='form-control' type='text' id='fname' name='fname' value='$p[name]' maxlength='255' required><br><br>
+                      <label for='animal' class='form-label'>Animal Type:</label><br>
+                      <select class='form-select' name='animal' id='animal' required>
+                          <option selected value='$p[animal]'>$p[animal]</option>
+                          <option value='dog'>Dog</option>
+                          <option value='cat'>Cat</option>
+                          <option value='bird'>Bird</option>
+                          <option value='fish'>Fish</option>
+                          <option value='reptile'>Reptile</option>
+                          <option value='rabbit'>Rabbit</option>
+                          <option value='other'>Other</option>
+                      </select><br><br>
+                      <label for='breed' class='form-label'>Breed/Type:</label><br>
+                      <input class='form-control' type='text' id='breed' name='breed' maxlength='255' value='$p[breed]'
+                          required><br><br>
+                      <label for='activities' class='form-label'>Favorite Activities:</label><br>
+                      <input class='form-control' type='text' id='activities' name='activities' maxlength='255' value='$p[activities]'
+                          required><br><br>
+                      <label for='allergies' class='form-label'>Allergies:</label><br>
+                      <input class='form-control' type='text' id='allergies' name='allergies' maxlength='255' value='$p[allergies]'
+                          required><br><br>
+                      <label for='food' class='form-label'>Preferred Food(s):</label><br>
+                      <input class='form-control' type='text' id='food' name='food' maxlength='255' value='$p[food]'
+                          required><br><br>
+                      <label for='bday' class='form-label'>Birthday:</label><br>
+                      <input class='form-control' type='date' min='1950-01-01' max='2099-12-31' value='$p[bday]'
+                          class='form-control' id='bday' name='bday' required /> <br />
+
+                  <button type='submit' class='btn btn-primary text-white'>Edit</button>
+              </form>
+              </div>
+            </div>
+          </div>
+          ";
+        }
+        echo "
+        </div>
+        </div>";
+
+/*
         echo "<div class='row justify-content-center'>
               <div class='col-lg-4'>
               <ul class='list-group mx-2'>";
+
         foreach ($petNames as $name) {
           echo "<a class='list-group-item list-group-item-action text-center' href='#'>$name</a>";
         }
         echo "</ul>
               </div>
               </div>";
-      }
+        */
+        }
       ?>
-    </div>
+      </div>
 
     <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -157,14 +219,15 @@
                                 required><br><br>
                             <label for="animal" class="form-label">Animal Type:</label><br>
                             <select class="form-select" name="animal" id="animal" required>
-                                <option selected>Choose</option>
-                                <option value="dog">Dog</option>
-                                <option value="cat">Cat</option>
-                                <option value="bird">Bird</option>
-                                <option value="fish">Fish</option>
-                                <option value="reptile">Reptile</option>
-                                <option value="reptile">Rabbit</option>
-                                <option value="other">Other</option>
+                                <!--The problem with "Choose" is that the user can still submit Choose as an animal type lol-->
+                                <!--<option selected>Choose</option>-->
+                                <option selected value="dog">dog</option>
+                                <option value="cat">cat</option>
+                                <option value="bird">bird</option>
+                                <option value="fish">fish</option>
+                                <option value="reptile">reptile</option>
+                                <option value="rabbit">rabbit</option>
+                                <option value="other">other</option>
                             </select><br><br>
                             <label for="breed" class="form-label">Breed/Type:</label><br>
                             <input class="form-control" type="text" id="breed" name="breed" maxlength="255"
