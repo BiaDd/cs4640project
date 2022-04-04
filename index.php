@@ -4,9 +4,12 @@
     2. https://cs4640.cs.virginia.edu/homework/homework4.html
     3. https://cs4640.cs.virginia.edu/lectures/examples/trivia-cookies.html
     4. https://php.net
+    5. https://www.kodingmadesimple.com/2015/01/convert-mysql-to-json-using-php.html (for SQL query to JSON conversion)
 */
 
-// Production URL: https://cs4640.cs.virginia.edu/mjm7ngb/hw4
+// Production URLs:
+// CS Server: https://cs4640.cs.virginia.edu/mjm7ngb/cs4640project
+// Google Cloud: https://storage.googleapis.com/pet-pals/cs4640project
 
 // Register the autoloader
 spl_autoload_register(function($classname) {

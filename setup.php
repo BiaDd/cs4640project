@@ -54,7 +54,7 @@ $sql = "CREATE TABLE pet (
 )";
 */
 
-
+/*
 if ($db->query($sql) === TRUE) {
   echo "Table pet created successfully";
 } else {
@@ -62,3 +62,4 @@ if ($db->query($sql) === TRUE) {
 }
 
 $db->close();
+*/

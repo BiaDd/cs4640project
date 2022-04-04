@@ -19,7 +19,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="Dan Do and Matt Morelli" />
+    <meta name="author" content="Dan Do & Matthew Morelli" />
     <meta name="description" content="PetPals - Pet Organization System" />
     <meta name="keywords" content="organizer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -95,7 +95,6 @@
         </div>
     </header>
 
-
     <div>
       <div class="row justify-content-center">
         <div class="col-8 my-3">
@@ -120,16 +119,11 @@
         echo "<div class='row justify-content-center'>";
         echo "<div class='col-8 text-center alert alert-danger w-50'>$load_msg</div>";
         echo "</div>";
-      } else if (!empty($petNames)) {
-
-        //print_r($pets);
+      } else {
         echo "
         <div class='row justify-content-center'>
-        <div class='accordion w-50 col-6' id='accordionExample'>";
+        <div class='accordion w-50 col-6' id='petAccordion'>";
         foreach ($pets as $p) { // might want to change this name later
-
-          /*the form for the drop down is a little weird, for some reason when <fieldset>
-           tag is used, it value class does not fill in text boxes??*/
 
           echo "
           <div class='accordion-item'>
@@ -138,7 +132,7 @@
                 $p[name]
               </button>
             </h2>
-            <div id='$p[name]' class='accordion-collapse collapse' aria-labelledby='$p[id]' data-bs-parent='#accordionExample'>
+            <div id='$p[name]' class='accordion-collapse collapse' aria-labelledby='$p[id]' data-bs-parent='#petAccordion'>
               <div class='accordion-body'>
               <form action='?command=editpet' method='post'>
                       <input type='hidden' name='petid' value='$p[id]'>
@@ -147,13 +141,13 @@
                       <label for='eanimal' class='form-label'>Animal Type:</label><br>
                       <select class='form-select' name='eanimal' id='eanimal' required>
                           <option selected value='$p[animal]'>$p[animal]</option>
-                          <option value='dog'>Dog</option>
-                          <option value='cat'>Cat</option>
-                          <option value='bird'>Bird</option>
-                          <option value='fish'>Fish</option>
-                          <option value='reptile'>Reptile</option>
-                          <option value='rabbit'>Rabbit</option>
-                          <option value='other'>Other</option>
+                          <option value='Dog'>Dog</option>
+                          <option value='Cat'>Cat</option>
+                          <option value='Bird'>Bird</option>
+                          <option value='Fish'>Fish</option>
+                          <option value='Reptile'>Reptile</option>
+                          <option value='Rabbit'>Rabbit</option>
+                          <option value='Other'>Other</option>
                       </select><br><br>
                       <label for='ebreed' class='form-label'>Breed/Type:</label><br>
                       <input class='form-control' type='text' id='ebreed' name='ebreed' maxlength='255' value='$p[breed]'
@@ -171,7 +165,11 @@
                       <input class='form-control' type='date' min='1950-01-01' max='2099-12-31' value='$p[bday]'
                           class='form-control' id='ebday' name='ebday' required /> <br />
 
-                  <button type='submit' class='btn btn-primary text-white'>Edit</button>
+                  <button type='submit' class='btn btn-primary text-white'>Save</button>
+              </form>
+              <form class='mt-1' action='?command=deletepet' method='post'>
+                <input type='hidden' name='petid' value='$p[id]'>
+                <button type='submit' class='btn btn-danger text-white'>Delete</button>
               </form>
               </div>
             </div>
@@ -181,22 +179,9 @@
         echo "
         </div>
         </div>";
-
-/*
-        echo "<div class='row justify-content-center'>
-              <div class='col-lg-4'>
-              <ul class='list-group mx-2'>";
-
-        foreach ($petNames as $name) {
-          echo "<a class='list-group-item list-group-item-action text-center' href='#'>$name</a>";
-        }
-        echo "</ul>
-              </div>
-              </div>";
-        */
-        }
+      }
       ?>
-      </div>
+    </div>
 
     <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -221,15 +206,13 @@
                                 required><br><br>
                             <label for="animal" class="form-label">Animal Type:</label><br>
                             <select class="form-select" name="animal" id="animal" required>
-                                <!--The problem with "Choose" is that the user can still submit Choose as an animal type lol-->
-                                <!--<option selected>Choose</option>-->
-                                <option selected value="dog">dog</option>
-                                <option value="cat">cat</option>
-                                <option value="bird">bird</option>
-                                <option value="fish">fish</option>
-                                <option value="reptile">reptile</option>
-                                <option value="rabbit">rabbit</option>
-                                <option value="other">other</option>
+                                <option selected value="Dog">Dog</option>
+                                <option value="Cat">Cat</option>
+                                <option value="Bird">Bird</option>
+                                <option value="Fish">Fish</option>
+                                <option value="Reptile">Reptile</option>
+                                <option value="Rabbit">Rabbit</option>
+                                <option value="Other">Other</option>
                             </select><br><br>
                             <label for="breed" class="form-label">Breed/Type:</label><br>
                             <input class="form-control" type="text" id="breed" name="breed" maxlength="255"
@@ -260,7 +243,7 @@
 
 
     <!-- FOOTER -->
-    <div class="row" style="margin: 0px">
+    <div class="row" style="margin: 0px;">
         <div class="col-12 bg-white mt-4">
             <footer
                 class="d-flex flex-wrap justify-content-between align-items-center p-3 my-4 mx-4 border-top border-bottom">

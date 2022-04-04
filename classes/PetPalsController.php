@@ -29,6 +29,9 @@ class PetPalsController {
             case "editpet":
                 $this->editPetInfo();
                 break;
+            case "deletepet":
+                $this->deletePet();
+                break;
             case "logout":
                 $this->destroySession();
             case "login":
@@ -142,6 +145,9 @@ class PetPalsController {
             "username" => $_SESSION["username"],
             "email" => $_SESSION["email"]
         ];
+
+
+
         $userID = $this->db->query("select id from user where username = ?;", "s", $user["username"]);
         if ($userID === false) { // If there is an error:
             $load_msg = "Error occurred while loading pets.";
@@ -154,10 +160,7 @@ class PetPalsController {
             } else if (empty($pets)) { // If the user has no pets
                 $load_msg = "You have not added any pets to your profile.";
             } else if (!empty($pets)) { // If the user does have pets, load their
-                $petNames = [];         // names into a list and send it to the view.
-                foreach ($pets as $i => $p) {
-                    array_push($petNames, $pets[$i]["name"]);
-                }
+                $petsJSON = json_encode($pets, JSON_PRETTY_PRINT);
             }
         }
 
@@ -217,6 +220,23 @@ class PetPalsController {
           }
       }
 
+    }
+
+    private function deletePet() { // Function to delete a pet
+        $user = [
+            "username" => $_SESSION["username"],
+            "email" => $_SESSION["email"]
+        ];
+
+        if (isset($_POST["petid"])) {
+            $delete = $this->db->query("DELETE FROM pet WHERE id = ?;", "i", $_POST["petid"]);
+            if ($edit === false) {
+                $error_msg = "Error deleting pet.";
+            } else {
+                header("Location: ?command=userpage");
+                return;
+            }
+        }
     }
 
 }

@@ -18,7 +18,7 @@
 <head>
     <!--
       CS4640 Server URL: https://cs4640.cs.virginia.edu/mjm7ngb/cs4640project/
-      Google Cloud URL: https://storage.googleapis.com/pet-pals/cs4640project/index.html
+      Google Cloud URL: https://storage.googleapis.com/pet-pals/cs4640project/
     -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />

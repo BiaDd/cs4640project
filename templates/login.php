@@ -43,7 +43,7 @@
       >
         <a
           id="login-top-logo"
-          href="index.html"
+          href="#"
           class="col-4 align-items-center justify-content-center link-dark text-decoration-none"
         >
           <img src="images/paw.svg" alt="paw icon" width="30" height="24" />
