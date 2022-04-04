@@ -9,7 +9,6 @@
 
 // Production URLs:
 // CS Server: https://cs4640.cs.virginia.edu/mjm7ngb/cs4640project
-// Google Cloud: https://storage.googleapis.com/pet-pals/cs4640project
 
 // Register the autoloader
 spl_autoload_register(function($classname) {
