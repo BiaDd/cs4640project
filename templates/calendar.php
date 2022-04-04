@@ -7,7 +7,7 @@
 *  URL: https://getbootstrap.com/docs/5.1/examples/footers/
 *  Software License: MIT License
 *
-*   Calendar built with inspiration from this tutorial: https://www.youtube.com/watch?v=o1yMqPyYeAo&ab_channel=CodeAndCreate
+*  Calendar built with inspiration from this tutorial: https://www.youtube.com/watch?v=o1yMqPyYeAo&ab_channel=CodeAndCreate
 *  Used Bootstrap for calendar styling:
 *  URL: https://getbootstrap.com/docs/5.0/getting-started/introduction/ 
 *  VERSION: 5.1.1
@@ -44,7 +44,7 @@
     <header id="calendar-index">
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-primary">
             <div class="container-fluid">
-                <a class="navbar-brand pb-3 pt-2" href="index.html">
+                <a class="navbar-brand pb-3 pt-2" href="#">
                     <!-- this svg image is under public domain -->
                     <img id="navbar-logo" src="images/paw.svg" alt="paw icon" width="24" height="24"
                         class="d-inline-block align-text-top">
