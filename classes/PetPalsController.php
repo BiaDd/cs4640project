@@ -32,6 +32,9 @@ class PetPalsController {
             case "deletepet":
                 $this->deletePet();
                 break;
+            case 'exportpets':
+                $this->exportPets();
+                break;
             case "logout":
                 $this->destroySession();
             case "login":
@@ -237,6 +240,33 @@ class PetPalsController {
                 return;
             }
         }
+    }
+
+    private function exportPets() {
+        $user = [
+            "username" => $_SESSION["username"],
+            "email" => $_SESSION["email"]
+        ];
+
+        $userID = $this->db->query("select id from user where username = ?;", "s", $user["username"]);
+        if ($userID === false) { // If there is an error:
+            $load_msg = "Error occurred while loading pets.";
+        } else if (!empty($userID)) {
+            $id = $userID[0]["id"];
+            // This loads the pets associated with the current user from the database
+            $pets = $this->db->query("select * from pet where user_id = ?;", "i", $id);
+            if ($pets === false) {
+                $load_msg = "Error occurred while loading pets.";
+            } else if (empty($pets)) { // If the user has no pets
+                $load_msg = "You have not added any pets to your profile.";
+            } else if (!empty($pets)) { // If the user does have pets, load their
+                $petsJSON = json_encode($pets, JSON_PRETTY_PRINT);
+            }
+        }
+        
+        header('Content-disposition: attachment; filename=pets.json');
+        header('Content-type: application/json');
+        echo $petsJSON;
     }
 
 }
