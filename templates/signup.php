@@ -37,13 +37,13 @@
   </head>
 
   <body>
-    <header id="home">
+    <header>
       <nav
         class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-primary"
       >
         <a
           id="login-top-logo"
-          href="?command=login"
+          href="?command=home"
           class="col-4 align-items-center justify-content-center link-dark text-decoration-none"
         >
           <img src="images/paw.svg" alt="paw icon" width="30" height="24" />
@@ -125,7 +125,7 @@
 
             <p class="text-center text-muted mt-5 mb-3">
               Already have an account?
-              <a href="?command=login" class="fw-bold text-body"><u>Login here.</u></a>
+              <a href="?command=login" class="fw-bold text-body"><u>Login here</u></a>
             </p>
 
             <!-- Submit button -->

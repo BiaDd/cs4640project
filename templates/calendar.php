@@ -44,7 +44,7 @@
     <header id="calendar-index">
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-primary">
             <div class="container-fluid">
-                <a class="navbar-brand pb-3 pt-2" href="#">
+                <a class="navbar-brand pb-3 pt-2" href="?command=home">
                     <!-- this svg image is under public domain -->
                     <img id="navbar-logo" src="images/paw.svg" alt="paw icon" width="24" height="24"
                         class="d-inline-block align-text-top">

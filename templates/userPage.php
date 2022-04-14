@@ -10,6 +10,9 @@
 *  URL: https://getbootstrap.com/docs/5.0/components/modal/
 *  Software License: MIT license
 *
+*
+* 
+* 
 
 -->
 
@@ -34,7 +37,7 @@
     <header id="profile">
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-primary">
             <div class="container-fluid">
-                <a class="navbar-brand pb-3 pt-2" href="#profile">
+                <a class="navbar-brand pb-3 pt-2" href="?command=home">
                     <!-- this svg image is under public domain -->
                     <img id="navbar-logo" src="images/paw.svg" alt="paw icon" width="24" height="24"
                         class="d-inline-block align-text-top" />
@@ -103,7 +106,7 @@
           </div>
       </div>
       <div class="row justify-content-center">
-        <div class="btn-group col-2 mb-3">
+        <div class="btn-group col-4 mb-3">
             <a href="#" class="btn btn-dark" role="button" data-bs-toggle="modal" data-bs-target="#addModal">
                 Add Pet
             </a>

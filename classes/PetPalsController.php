@@ -77,7 +77,7 @@ class PetPalsController {
                 } else {
                     header("Location: ?command=home");
                     $_SESSION["email"] = $_POST["email"];
-                    $_SESSION["logged_in"] = TRUE;
+                    $_SESSION["logged_in"] = true;
                     $_SESSION["username"] = $username;
                     return;
                 }
@@ -105,7 +105,7 @@ class PetPalsController {
                     header("Location: ?command=userpage");
                     $_SESSION["email"] = $data[0]["email"];
                     $_SESSION["username"] = $data[0]["username"];
-                    $_SESSION["logged_in"] = TRUE;
+                    $_SESSION["logged_in"] = true;
                     return;
                 } else {
                     $error_msg = "Incorrect password.";
@@ -133,12 +133,14 @@ class PetPalsController {
     }
 
     public function home() {
-
-        $user = [
-            "username" => $_SESSION["username"],
-            "email" => $_SESSION["email"]
-        ];
-
+        $authenticated = false;
+        if (isset($_SESSION["logged_in"])) {
+            $user = [
+                "username" => $_SESSION["username"],
+                "email" => $_SESSION["email"]
+            ];
+            $authenticated = true;
+        } 
 
         include("templates/home.php");
     }
@@ -242,7 +244,7 @@ class PetPalsController {
         }
     }
 
-    private function exportPets() {
+    private function exportPets() { // Header code to force .json download from https://stackoverflow.com/a/11545741
         $user = [
             "username" => $_SESSION["username"],
             "email" => $_SESSION["email"]
