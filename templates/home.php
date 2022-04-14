@@ -37,7 +37,7 @@
     <header id="home">
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-primary">
             <div class="container-fluid">
-                <a class="navbar-brand pb-3 pt-2" href="#home">
+                <a class="navbar-brand pb-3 pt-2" href="#">
                     <!-- this svg image is under public domain -->
                     <img id="navbar-logo" src="images/paw.svg" alt="paw icon" width="24" height="24"
                         class="d-inline-block align-text-top" />
@@ -51,27 +51,40 @@
                 <div class="collapse navbar-collapse" id="navbarItems">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#home">Home</a>
+                            <a class="nav-link active" href="#">Home</a>
                         </li>
+                        <!-- Decide whether to disable links based on whether user is authenticated -->
                         <li class="nav-item">
+                            <?php if ($authenticated) { ?>
                             <a class="nav-link" href="?command=calendar">Calendar</a>
+                            <?php } else { ?>
+                            <a class="nav-link disabled" href="#">Calendar</a>
+                            <?php } ?>
                         </li>
                         <li class="nav-item">
+                            <?php if ($authenticated) { ?>
                             <a class="nav-link" href="?command=userpage">Profile</a>
+                            <?php } else { ?>
+                            <a class="nav-link disabled" href="#">Profile</a>
+                            <?php } ?>
                         </li>
                     </ul>
-                    <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link btn btn-dark text-white m-1" role="button" href="?command=login">
-                                Login
-                            </a>
-                        </li>
+                    <ul class="navbar-nav ml-auto mb-2 mb-lg-0">   
+                    <!-- Decide whether to show login or logout button based on whether user is authenticated -->
+                        <?php if ($authenticated) { ?>
                         <li class="nav-item ml-auto">
                             <a href="#" class="nav-link navbar-right btn btn-outline-dark m-1" role="button"
                                 data-bs-toggle="modal" data-bs-target="#logoutModal">
                                 Logout
                             </a>
                         </li>
+                        <?php } else { ?>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-dark text-white m-1" role="button" href="?command=login">
+                                Login
+                            </a>
+                        </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>
@@ -107,8 +120,8 @@
     <div class="row row-cols-1 row-cols-md-3 g-4 mt-3" style="margin: 0px">
         <div class="col d-flex justify-content-center">
             <div class="card w-75 text-center">
-                <a href="#"><img src="images/rabbit1.jpg" class="card-img-top"
-                        alt="Go to organizational feature, rabbit picture" /></a>
+                <a href="?command=userpage"><img src="images/rabbit1.jpg" class="card-img-top"
+                        alt="Go to profile feature, rabbit picture" /></a>
                 <div class="card-body">
                     <p class="card-title fw-bold">Organize</p>
                     <p class="card-text">
@@ -157,10 +170,13 @@
 
     <div class="container mt-4 fs-2 text-center py-3 rounded border bg-white">
         <h1 class="text-center fs-2">Take care of your pets the right way.</h1>
+        <!-- Decide whether to show login button based on whether user is authenticated -->
+        <?php if ($authenticated === false) { ?>
         <br />
         <a href="?command=login" role="button" class="btn btn-dark" style="border-radius: 25px">
             Login
         </a>
+        <?php } ?>
     </div>
 
     <!--MASONRY-->
@@ -234,15 +250,19 @@
                     <li class="nav-item">
                         <a href="?command=userpage" class="nav-link px-2 text-muted">Profile</a>
                     </li>
+                    <!-- Decide whether to show login or logout button based on whether user is authenticated -->
+                    <?php if ($authenticated === false) { ?>
                     <li class="nav-item">
                         <a href="?command=login" class="nav-link px-2 text-muted">Login</a>
                     </li>
+                    <?php } else { ?>
                     <li class="nav-item">
                         <a href="#" class="nav-link px-2 text-muted" role="button" data-bs-toggle="modal"
                             data-bs-target="#logoutModal">
                             Logout
                         </a>
                     </li>
+                    <?php } ?>
                 </ul>
             </footer>
         </div>

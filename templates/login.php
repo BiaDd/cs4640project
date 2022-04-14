@@ -37,13 +37,13 @@
   </head>
 
   <body>
-    <header id="home">
+    <header>
       <nav
         class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-primary"
       >
         <a
           id="login-top-logo"
-          href="#"
+          href="?command=home"
           class="col-4 align-items-center justify-content-center link-dark text-decoration-none"
         >
           <img src="images/paw.svg" alt="paw icon" width="30" height="24" />
