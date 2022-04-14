@@ -1,4 +1,4 @@
-# Pet App
+# PetPals
 
 Website to organize pet stuff.
 
