@@ -11,7 +11,7 @@ CS4640 Server URL: https://cs4640.cs.virginia.edu/mjm7ngb/cs4640project/<br>
 
 ### Dependencies
 
-* Used HTML,CSS,Bootstrap,PHP.
+* Uses HTML, CSS, Bootstrap, PHP, and JavaScript
 
 
 ### Installing
