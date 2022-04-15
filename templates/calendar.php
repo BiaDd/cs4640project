@@ -123,19 +123,12 @@
                     <a href="#" class="btn btn-outline-primary my-2" role="button" data-bs-toggle="modal" data-bs-target="#eventModal">Add New</a>
                     <?php } else { ?>
                     <a href="#" class="btn btn-outline-primary my-2 disabled">Add New</a>
-                    <div class='alert alert-secondary'>Add some pets to begin adding events!</div>
+                    <div class='alert alert-secondary text-center'>Add some pets to begin adding events!</div>
                     <?php } ?>
                     <div class="card mt-3" style="width: 18rem;">
-                        <ul class="list-group list-group-flush">
+                        <ul id="upcoming" class="list-group list-group-flush">
                             <!-- These events will be loaded based on the user when we set up DB -->
                             <li class="upcoming-header list-group-item text-center py-2"><strong>Upcoming</strong></li>
-
-                            <li class="list-group-item">Example Event #1<span class="badge bg-primary"
-                                    style="float: right;">Mar 1</span></li>
-
-                            <li class="list-group-item">Example Event #2<span class="badge bg-primary"
-                                    style="float: right;">Apr 12</span></li>
-
                         </ul>
                     </div>
                 </div>

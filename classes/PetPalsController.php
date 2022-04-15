@@ -154,6 +154,35 @@ class PetPalsController {
     }
 
     public function upcomingLoader() {
+        $user = [
+            "username" => $_SESSION["username"],
+            "email" => $_SESSION["email"]
+        ];
+
+        $load_msg = false;
+        $eventsJSON = false;
+        $eventData = [];
+
+        $userID = $this->db->query("select id from user where username = ?;", "s", $user["username"]);
+        if ($userID === false) { // If there is an error:
+            $load_msg = "Error occurred while loading events.";
+        } else if (!empty($userID)) {
+            $id = $userID[0]["id"];
+            // This loads the pets associated with the current user from the database
+            $events = $this->db->query("select * from event where user_id = ? order by dtime asc;", "i", $id);
+            if ($events === false) {
+                $load_msg = "Error occurred while loading events.";
+            } else if (empty($events)) { // If the user has no pets
+                $load_msg = "You have not created any events.";
+            } else if (!empty($events)) { // If the user does have pets, load their
+                $eventsJSON = json_encode($events, JSON_PRETTY_PRINT);
+            }
+        }
+
+        $eventData['load_msg'] = $load_msg;
+        $eventData['events'] = $eventsJSON;
+
+        echo json_encode($eventData);
 
     }
 
@@ -199,8 +228,6 @@ class PetPalsController {
             "username" => $_SESSION["username"],
             "email" => $_SESSION["email"]
         ];
-
-
 
         $userID = $this->db->query("select id from user where username = ?;", "s", $user["username"]);
         if ($userID === false) { // If there is an error:
