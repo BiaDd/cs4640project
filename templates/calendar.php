@@ -32,7 +32,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <title>PetPals - Calendar</title>
 
 
@@ -118,21 +119,74 @@
 
                 <div class="col-12 col-md-12 col-lg-4 align-items-center">
                     <!-- This button will later link to a calendar event form -->
-                    <button type="button" class="btn btn-outline-primary my-2">Add New</button>
+                    <?php if (!$petError) { ?>
+                    <a href="#" class="btn btn-outline-primary my-2" role="button" data-bs-toggle="modal" data-bs-target="#eventModal">Add New</a>
+                    <?php } else { ?>
+                    <a href="#" class="btn btn-outline-primary my-2 disabled">Add New</a>
+                    <div class='alert alert-secondary text-center'>Add some pets to begin adding events!</div>
+                    <?php } ?>
                     <div class="card mt-3" style="width: 18rem;">
-                        <ul class="list-group list-group-flush">
+                        <ul id="upcoming" class="list-group list-group-flush">
                             <!-- These events will be loaded based on the user when we set up DB -->
                             <li class="upcoming-header list-group-item text-center py-2"><strong>Upcoming</strong></li>
-
-                            <li class="list-group-item">Example Event #1<span class="badge bg-primary"
-                                    style="float: right;">Mar 1</span></li>
-
-                            <li class="list-group-item">Example Event #2<span class="badge bg-primary"
-                                    style="float: right;">Apr 12</span></li>
-
                         </ul>
                     </div>
                 </div>
+
+
+                <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <p class="modal-title fw-bold" id="eventModalLabel">
+                                    Add New Calendar Event
+                                </p>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="?command=addevent" method="post">
+                                    <?php
+                                    if (!empty($error_msg)) {
+                                        echo "<div class='alert alert-danger'>$error_msg</div>";
+                                    }
+                                    ?>
+                                    <fieldset class="my-3">
+                                        <label for="title" class="form-label">Title:</label><br>
+                                        <input class="form-control" type="text" id="title" name="title" maxlength="255"
+                                            required><br><br>
+                                        <label for="pet" class="form-label">Associated Pet:</label><br>
+                                        <select class="form-select" name="pet" id="pet" required>
+                                        <?php
+                                        if (!$petError) {
+                                            foreach($pets as $p) {
+                                                echo "<option value='$p[name]'>$p[name]</option>";
+                                            }
+                                        }
+                                        ?>
+                                        </select><br><br>
+                                        <label for="location" class="form-label">Location:</label><br>
+                                        <input class="form-control" type="text" id="location" name="location" maxlength="255"
+                                            required><br><br>
+                                        <label for="desc" class="form-label">Description:</label><br>
+                                        <input class="form-control" type="text" id="desc" name="desc" maxlength="255"
+                                            required><br><br>
+                                        <label for="when" class="form-label">Date/Time:</label><br>
+                                        <input class="form-control" type="datetime-local" max="2099-12-31T00:00"
+                                            class="form-control" id="when" name="when" required />
+                                    </fieldset>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                        Cancel
+                                    </button>
+                                    <button type="submit" class="btn btn-primary text-white">Add</button>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
                 <!-- Begin calendar app -->
                 <div class="col-12 col-md-12 col-lg-8">
                     <!-- Responsive bootstrap columns -->
@@ -200,8 +254,8 @@
 
     <!-- /* To make calendar work */ -->
     <script src="scripts/less.js"></script>
-
     <script src="scripts/calendar.js"></script>
+    <script src="scripts/upcoming.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">

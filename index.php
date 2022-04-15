@@ -17,7 +17,7 @@ spl_autoload_register(function($classname) {
 
 // This array contains all of the commands that require authentication.
 // All new commands that require authentication should be added here.
-$authRequired = array("userpage", "addpet", "editpet", "deletepet", "exportpets", "logout", "calendar");
+$authRequired = array("userpage", "addpet", "editpet", "deletepet", "exportpets", "logout", "calendar", "addevent");
 
 session_start();
 

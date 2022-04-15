@@ -2,6 +2,7 @@
 // Calendar Tutorial: https://www.youtube.com/watch?v=o1yMqPyYeAo&ab_channel=CodeAndCreate
 
 const today = new Date();
+document.getElementById("when").min = new Date().toISOString().substring(0,16);
 
 const showCalendar = () => {
   const m = today.getMonth();
@@ -62,9 +63,9 @@ const showCalendar = () => {
 
   // Calendar header based on current date
   document.querySelector("#date h1").innerHTML = ms[m];
-  document.querySelector("#date p").innerHTML =
-    ds[day] + `, ` + mabbr[m] + ` ` + date + ` ` + y;
-  document.querySelector("#only-year").innerHTML = justyear;
+  document.querySelector("#date p").innerHTML = ds[day] + `, ` + mabbr[m] + ` ` + date + ` ` + y;
+
+  $("#only-year").append(justyear);
 
   var dates = ``;
 

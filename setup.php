@@ -53,13 +53,25 @@ $sql = "CREATE TABLE pet (
     PRIMARY KEY (id)
 )";
 */
-
+/*
+$sql = "CREATE TABLE event (
+  id INT NOT NULL AUTO_INCREMENT,
+  user_id int not null,
+  title VARCHAR(255) NOT NULL,
+  assoc_pet VARCHAR(255) NOT NULL,
+  loco VARCHAR(255) NOT NULL,
+  descrip VARCHAR(255) NOT NULL,
+  dtime datetime NOT NULL,
+  PRIMARY KEY (id)
+)";
+*/
 /*
 if ($db->query($sql) === TRUE) {
-  echo "Table pet created successfully";
+  echo "Table event created successfully";
 } else {
   echo "Error creating table: " . $db->error;
 }
+
 
 $db->close();
 */
