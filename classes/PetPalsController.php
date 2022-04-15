@@ -20,6 +20,9 @@ class PetPalsController {
             case "calendar":
                 $this->calendar();
                 break;
+            case "addevent":
+                $this->addEvent();
+                break;
             case "userpage":
                 $this->userPage();
                 break;
@@ -128,8 +131,27 @@ class PetPalsController {
             "email" => $_SESSION["email"]
         ];
 
+        $petError = false;
+
+        $userID = $this->db->query("select id from user where username = ?;", "s", $user["username"]);
+        if ($userID === false) { // If there is an error:
+            $load_msg = "Error occurred while loading user.";
+        } else if (!empty($userID)) {
+            $id = $userID[0]["id"];
+            // This loads the pets associated with the current user from the database
+            $pets = $this->db->query("select * from pet where user_id = ?;", "i", $id);
+            if ($pets === false) {
+                $petError = true;
+            } else if (empty($pets)) { // If the user has no pets
+                $petError = true;
+            }
+        }
 
         include("templates/calendar.php");
+    }
+
+    public function addEvent() {
+
     }
 
     public function home() {
