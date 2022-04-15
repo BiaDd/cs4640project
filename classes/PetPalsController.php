@@ -20,6 +20,9 @@ class PetPalsController {
             case "calendar":
                 $this->calendar();
                 break;
+            case "upcomingloader":
+                $this->upcomingLoader();
+                break;
             case "addevent":
                 $this->addEvent();
                 break;
@@ -150,8 +153,32 @@ class PetPalsController {
         include("templates/calendar.php");
     }
 
-    public function addEvent() {
+    public function upcomingLoader() {
 
+    }
+
+    public function addEvent() {
+        $user = [
+            "username" => $_SESSION["username"],
+            "email" => $_SESSION["email"]
+        ];
+        $userID = $this->db->query("select id from user where username = ?;", "s", $user["username"]);
+        if ($userID === false) { // If there is an error:
+            $error_msg = "Error occurred while creating event.";
+        } else if (!empty($userID)) {
+            $id = $userID[0]["id"];
+            // Not sure if need to even check for post since html form has required, so they either input or not
+            if (isset($_POST["title"])) {
+                $insert = $this->db->query("insert into event (user_id, title, assoc_pet, loco, descrip, dtime) values (?, ?, ?, ?, ?, ?);",
+                "isssss", $id, $_POST["title"], $_POST["pet"], $_POST["location"], $_POST["desc"], $_POST["when"]);
+                if ($insert === false) {
+                    $error_msg = "Error creating event.";
+                } else {
+                    header("Location: ?command=calendar");
+                    return;
+                }
+            }
+        }
     }
 
     public function home() {

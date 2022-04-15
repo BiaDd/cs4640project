@@ -155,7 +155,7 @@
                                 <form action="?command=addevent" method="post">
                                     <?php
                                     if (!empty($error_msg)) {
-                                    echo "<div class='alert alert-danger'>$error_msg</div>";
+                                        echo "<div class='alert alert-danger'>$error_msg</div>";
                                     }
                                     ?>
                                     <fieldset class="my-3">
@@ -262,6 +262,7 @@
     <!-- /* To make calendar work */ -->
     <script src="scripts/less.js"></script>
     <script src="scripts/calendar.js"></script>
+    <script src="scripts/upcoming.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
