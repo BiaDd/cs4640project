@@ -153,6 +153,7 @@ class PetPalsController {
         include("templates/calendar.php");
     }
 
+    // Handle async loading of events in the upcoming sidebar of calendar view.
     public function upcomingLoader() {
         $user = [
             "username" => $_SESSION["username"],
@@ -168,13 +169,13 @@ class PetPalsController {
             $load_msg = "Error occurred while loading events.";
         } else if (!empty($userID)) {
             $id = $userID[0]["id"];
-            // This loads the pets associated with the current user from the database
+            // This loads the events associated with the current user from the database
             $events = $this->db->query("select * from event where user_id = ? order by dtime asc;", "i", $id);
             if ($events === false) {
                 $load_msg = "Error occurred while loading events.";
-            } else if (empty($events)) { // If the user has no pets
+            } else if (empty($events)) { // If the user has no events:
                 $load_msg = "You have not created any events.";
-            } else if (!empty($events)) { // If the user does have pets, load their
+            } else if (!empty($events)) { // If the user does have events:
                 $eventsJSON = json_encode($events, JSON_PRETTY_PRINT);
             }
         }
@@ -186,6 +187,7 @@ class PetPalsController {
 
     }
 
+    // Event creation handler:
     public function addEvent() {
         $user = [
             "username" => $_SESSION["username"],
@@ -248,6 +250,7 @@ class PetPalsController {
         include("templates/userPage.php");
     }
 
+    // Adding pet handler:
     private function addPet() {
         $user = [
             "username" => $_SESSION["username"],
@@ -273,8 +276,8 @@ class PetPalsController {
     }
 
     // I think we can combine this and the add function with an if statement that checks if the pet exists in the table?
-
-    private function editPetInfo() { // function to edit information of pet
+    // function to edit information of pet
+    private function editPetInfo() { 
       $user = [
           "username" => $_SESSION["username"],
           "email" => $_SESSION["email"]
@@ -303,7 +306,8 @@ class PetPalsController {
 
     }
 
-    private function deletePet() { // Function to delete a pet
+    // Function to delete a pet
+    private function deletePet() { 
         $user = [
             "username" => $_SESSION["username"],
             "email" => $_SESSION["email"]
@@ -320,6 +324,7 @@ class PetPalsController {
         }
     }
 
+    // Export pets as .json file handler
     private function exportPets() { // Header code to force .json download from https://stackoverflow.com/a/11545741
         $user = [
             "username" => $_SESSION["username"],
