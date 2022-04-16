@@ -154,7 +154,7 @@
                       <input class='form-control' type='text' id='ename' name='ename' value='$p[name]' maxlength='255' required><br><br>
                       <label for='eanimal' class='form-label'>Animal Type:</label><br>
                       <select class='form-select' name='eanimal' id='eanimal' required>
-                          <option selected value='$p[animal]'>$p[animal]</option>
+                          <option value='$p[animal]' selected hidden>$p[animal]</option>
                           <option value='Dog'>Dog</option>
                           <option value='Cat'>Cat</option>
                           <option value='Bird'>Bird</option>

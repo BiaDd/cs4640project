@@ -3,9 +3,11 @@ class PetPalsController {
 
     private $command;
     private $db;
+    private $eventID;
 
-    public function __construct($command) {
+    public function __construct($command, $eventID = NULL) {
         $this->command = $command;
+        $this->eventID = $eventID;
         $this->db = new Database();
     }
 
@@ -25,6 +27,9 @@ class PetPalsController {
                 break;
             case "addevent":
                 $this->addEvent();
+                break;
+            case "eventpage":
+                $this->eventPage($this->eventID);
                 break;
             case "userpage":
                 $this->userPage();
@@ -185,6 +190,29 @@ class PetPalsController {
 
         echo json_encode($eventData);
 
+    }
+
+    // Event page view:
+    public function eventPage($eventID = NULL) {
+        $user = [
+            "username" => $_SESSION["username"],
+            "email" => $_SESSION["email"]
+        ];
+        if ($eventID !== NULL) {
+            $id = intval($eventID);
+            $event = $this->db->query("select * from event where id = ?;", "i", $id);
+            if ($event === false) {
+                $load_msg = "Error occurred while loading event.";
+            } else if (empty($events)) { // If the user has no events:
+                $load_msg = "Error occurred while loading event";
+            }
+        } else {
+            header("Location: ?command=calendar");
+            return;
+        }
+
+        
+        include("templates/event.php");
     }
 
     // Event creation handler:

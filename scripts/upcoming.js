@@ -36,7 +36,7 @@ $(document).ready(function() {
                 let mo = mabbrs[dtime.getMonth()];
                 let day = dtime.getDate().toString();
                 let dateTag = mo+" "+day;
-                $('#upcoming').append("<li class='list-group-item'>"+titleInsert+"<span class='badge bg-primary' style='float: right;'>"+dateTag+"</span></li>");
+                $('#upcoming').append(`<a href='?command=eventpage&eventID=${event['id']}' class='list-group-item list-group-item-action'>${titleInsert}<span class='badge bg-primary' style='float: right;'>${dateTag}</span></a>`);
             });
         } else { // Places the load message inside, whatever the message may be. It comes from the php handler upcomingLoader.
             $('#upcoming').append("<li class='list-group-item text-center py-2'>"+load_msg+"</li>");

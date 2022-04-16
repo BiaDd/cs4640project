@@ -17,7 +17,7 @@ spl_autoload_register(function($classname) {
 
 // This array contains all of the commands that require authentication.
 // All new commands that require authentication should be added here.
-$authRequired = array("userpage", "addpet", "editpet", "deletepet", "exportpets", "logout", "calendar", "addevent");
+$authRequired = array("userpage", "addpet", "editpet", "deletepet", "exportpets", "logout", "calendar", "addevent", "eventpage");
 
 session_start();
 
@@ -25,6 +25,9 @@ session_start();
 $command = "home";
 if (isset($_GET["command"]))
     $command = $_GET["command"];
+$eventID = NULL;
+if (isset($_GET['eventID']))
+    $eventID = $_GET['eventID'];
 
 // If the user tries to use a command that is in $authRequired, but "logged_in" has not
 // been set in the session variables, then they are redirected to login page.
@@ -36,5 +39,6 @@ if (!isset($_SESSION["logged_in"]) && in_array($command, $authRequired)) {
 
 
 // Instantiate the controller and run
-$wordGame = new PetPalsController($command);
-$wordGame->run();
+
+$petPals = new PetPalsController($command, $eventID);
+$petPals->run();
