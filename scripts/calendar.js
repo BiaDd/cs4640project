@@ -2,9 +2,17 @@
 // Calendar Tutorial: https://www.youtube.com/watch?v=o1yMqPyYeAo&ab_channel=CodeAndCreate
 
 const today = new Date();
-document.getElementById("when").min = new Date().toISOString().substring(0,16);
+// Prevent user from creating events in the past.
+var minInput = new Date();
+minInput.setHours(0,0,0,0);
+document.getElementById("when").min = minInput.toISOString().substring(0,16);
 
 const showCalendar = () => {
+
+  
+  var realDay = new Date(); // This is to compare against the dates being shown on the calendar each time
+  // the function is loaded
+
   const m = today.getMonth();
   const day = today.getDay();
   const date = today.getDate();
@@ -65,7 +73,7 @@ const showCalendar = () => {
   document.querySelector("#date h1").innerHTML = ms[m];
   document.querySelector("#date p").innerHTML = ds[day] + `, ` + mabbr[m] + ` ` + date + ` ` + y;
 
-  $("#only-year").append(justyear);
+  document.querySelector("#only-year").innerHTML = justyear;
 
   var dates = ``;
 
@@ -74,10 +82,17 @@ const showCalendar = () => {
   }
 
   for (var i = 1; i <= sizeOfMonth; i++) {
-    if (date == i) {
-      dates += `<a href="#" id="current" class="border border-primary rounded">${i}</a>`;
+    // Prevents selecting days before current day.
+    if (realDay.getMonth() == today.getMonth() && realDay.getFullYear() == today.getFullYear()) {
+      if (i < realDay.getDate()) {
+        dates += `<a href="#" class="fillerday">${i}</a>`;
+      } else if (i == realDay.getDate()) {
+        dates += `<a href="#" id="current" class="border border-primary rounded" role="button" data-bs-toggle="modal" data-bs-target="#eventModal">${i}</a>`;
+      } else {
+        dates += `<a href="#" role="button" data-bs-toggle="modal" data-bs-target="#eventModal">${i}</a>`;
+      }
     } else {
-      dates += `<a href="#">${i}</a>`;
+      dates += `<a href="#" role="button" data-bs-toggle="modal" data-bs-target="#eventModal">${i}</a>`;
     }
   }
 
@@ -89,8 +104,12 @@ const showCalendar = () => {
 };
 
 document.querySelector(".back").addEventListener("click", () => {
-  today.setMonth(today.getMonth() - 1);
-  showCalendar();
+  const realDay = new Date();
+  // This prevents the user from going back in time on the calendar
+  if (!(realDay.getMonth() == today.getMonth() && realDay.getFullYear() == today.getFullYear())) {
+    today.setMonth(today.getMonth() - 1);
+    showCalendar();
+  }
 });
 
 document.querySelector(".next").addEventListener("click", () => {
