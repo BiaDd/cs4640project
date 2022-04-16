@@ -64,7 +64,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="#calendar-index">
+                            <a class="nav-link active" href="#">
                                 Calendar
                             </a>
                         </li>
@@ -118,7 +118,6 @@
             <div class="row mt-3">
 
                 <div class="col-12 col-md-12 col-lg-4 align-items-center">
-                    <!-- This button will later link to a calendar event form -->
                     <?php if (!$petError) { ?>
                     <a href="#" class="btn btn-outline-primary my-2" role="button" data-bs-toggle="modal" data-bs-target="#eventModal">Add New</a>
                     <?php } else { ?>
