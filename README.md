@@ -22,7 +22,10 @@ CS4640 Server URL: https://cs4640.cs.virginia.edu/mjm7ngb/cs4640project/<br>
 * Remember to add new commands to the $authRequired list in index.php
 
 ### To Do (top priority first)
-- [ ] Add delete button to upcoming event list (with confirmation model). Could render it using JavaScript.
-- [ ] Figure out how to render events on the actual calendar.
+- [ ] Add JavaScript dynamic behavior to login.php, signup.php, home.php, and userPage.php
 - [ ] Possibly add image gallery to bottom of profile page with image upload ability.
-- [X] Modify PetPalsController to route through home first, then login page.
+
+### Calendar TODO (after sprint requirements)
+- [ ] Handle event deletion (automatic when calendar page is loaded if time has passed, manual from event.php)
+- [ ] Color days in the calendar that have scheduled events different than the rest (will likely need AJAX, can be done after sprint).
+- [ ] Autopopulate date/time in new event form when accesses via the calendar itself, based on the day clicked (jQuery)
