@@ -108,8 +108,8 @@
                 <div class="col-12 col-md-8">
                     <p class="fs-5 mb-2"><b>For:</b> <?= $event[0]['assoc_pet'] ?></p>
                     <p class="fs-5 mb-2"><b>At:</b> <?= $event[0]['loco'] ?></p>
-                    <p class="fs-5 mb-2"><b>When:</b> <?= substr($event[0]['dtime'], 0, 16) ?></p>
-                    <p class="fs-5"><b>Description:</b></p>
+                    <p class="fs-5 mb-2"><b>When:</b> <span id="when"><?= substr($event[0]['dtime'], 0, 16) ?></span></p>
+                    <p class="fs-5 mb-1"><b>Description:</b></p>
                     <p class="fs-5 mb-2"><?= $event[0]['descrip'] ?></p>
                 </div>
             </div>
@@ -147,11 +147,17 @@
     </div>
 
 
-    <!-- /* To make calendar work */ -->
+    <!-- To change date format -->
+    <script>
+        $(document).ready(function() {
+            let when = $('#when').text();
+            when = new Date(when);
+            when = when.toLocaleString('en');
+            formatted = when.slice(0,-6)+" "+when.slice(-2);
+            $('#when').text(formatted);
+        });
+    </script>
     <script src="scripts/less.js"></script>
-    <script src="scripts/calendar.js"></script>
-    <script src="scripts/upcoming.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
     </script>
