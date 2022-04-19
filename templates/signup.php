@@ -54,9 +54,9 @@
     <div class="container py-5 mt-2">
       <div class="row py-3 d-flex align-items-center justify-content-center">
         <h1 class="text-center fs-2">Register for PetPals!</h1>
-        
+
         <div class="py-5 d-flex align-items-center justify-content-center">
-          
+
           <form action="?command=signup" method="post">
           <?php
             if (!empty($error_msg)) {
@@ -130,7 +130,7 @@
 
             <!-- Submit button -->
             <div class="col text-center">
-              <button type="submit" class="btn btn-primary btn-block btn-lg">
+              <button type="submit" class="btn btn-primary btn-block btn-lg" onclick="validate()">
                 <span>Create Account</span>
               </button>
             </div>
