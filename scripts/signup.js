@@ -1,6 +1,6 @@
 
 
-
+// might change this to an anonymous function later?
 function validate () {
   const hasNumber = /\d/; // check for a number in password
   const specialChars = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/; // check for special characters

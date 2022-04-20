@@ -36,7 +36,7 @@
     <title>PetPals - Login</title>
   </head>
 
-  <body>
+  <body onload="rebuild();">
     <header>
       <nav
         class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-primary"
@@ -81,10 +81,11 @@
                 id="username"
                 pattern="[A-Za-z0-9]{6,20}"
                 class="form-control form-control-lg"
+                placeholder=""
                 required
               />
             </div>
-            
+
             <!-- Email input -->
             <!-- Removed email from login, would like to use username.
             <div class="form-outline mb-4">
@@ -133,7 +134,7 @@
 
             <!-- Submit button -->
             <div class="col text-center">
-              <button type="submit" class="btn btn-primary btn-block btn-lg">
+              <button type="submit" class="btn btn-primary btn-block btn-lg" onclick="rememberUsername()">
                 <span>Sign in</span>
               </button>
             </div>

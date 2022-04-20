@@ -22,7 +22,7 @@ CS4640 Server URL: https://cs4640.cs.virginia.edu/mjm7ngb/cs4640project/<br>
 * Remember to add new commands to the $authRequired list in index.php
 
 ### To Do (top priority first)
-- [ ] Add JavaScript dynamic behavior to login.php, signup.php, home.php, and userPage.php
+- [ ] Add JavaScript dynamic behavior to home.php, and userPage.php
 - [ ] Possibly add image gallery to bottom of profile page with image upload ability.
 
 ### Calendar TODO (after sprint requirements)
