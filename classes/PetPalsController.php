@@ -102,6 +102,7 @@ class PetPalsController {
 
     // Display the login page (and handle login logic)
     public function login() {
+        $error_msg = "N/A";
         if (isset($_SESSION["email"])) { // If already logged into session
             header("Location: ?command=home");
             return;

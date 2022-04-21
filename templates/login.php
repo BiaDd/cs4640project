@@ -32,7 +32,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
     />
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <title>PetPals - Login</title>
   </head>
 
@@ -62,11 +62,7 @@
           />
         </div>
         <div class="col-xl-5 offset-xl-1">
-          <?php
-            if (!empty($error_msg)) {
-              echo "<div class='alert alert-danger'>$error_msg</div>";
-            }
-          ?>
+          <div id='error-msg' class='alert alert-danger'><?= $error_msg ?></div>
           <form action="?command=login" method="post">
 
             <!-- Username input -->
@@ -79,7 +75,6 @@
                 type="username"
                 name="username"
                 id="username"
-                pattern="[A-Za-z0-9]{6,20}"
                 class="form-control form-control-lg"
                 placeholder=""
                 required
@@ -110,7 +105,6 @@
                 type="password"
                 name="password"
                 id="password"
-                pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
                 class="form-control form-control-lg"
                 required
               />
@@ -169,6 +163,13 @@
 
     <script src="scripts/less.js"></script>
     <script src="scripts/login.js"></script>
+    <script>
+      $(document).ready(function() {
+        if ($('#error-msg').text() == 'N/A') {
+          $('#error-msg').hide();
+        }
+      });
+    </script>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"

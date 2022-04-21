@@ -227,7 +227,7 @@
     <div class="row" style="margin: 0px;">
         <div class="col-12 bg-light mt-4">
             <footer
-                class="d-flex flex-wrap justify-content-between align-items-center p-3 my-4 mx-4 border-top border-bottom">
+                class="d-flex flex-wrap justify-content-between align-items-center p-3 my-3 mx-4 border-top border-bottom">
                 <p class="col-md-4 mb-0 text-muted">&copy; 2022 PetPals, Inc</p>
 
                 <a id="bottom-logo" href="#calendar-index"
@@ -255,6 +255,7 @@
     <script src="scripts/less.js"></script>
     <script src="scripts/calendar.js"></script>
     <script src="scripts/upcoming.js"></script>
+    <script src="scripts/navlinks.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">

@@ -29,6 +29,7 @@ $db = new mysqli(Config::$db["host"], Config::$db["user"],
 
 // Need to add tables to database:
 
+
 /*
 $sql = "CREATE TABLE user (
 id INT NOT NULL AUTO_INCREMENT,
@@ -64,8 +65,6 @@ $sql = "CREATE TABLE event (
   dtime datetime NOT NULL,
   PRIMARY KEY (id)
 )";
-*/
-/*
 if ($db->query($sql) === TRUE) {
   echo "Table event created successfully";
 } else {
