@@ -69,7 +69,7 @@
                             <?php } ?>
                         </li>
                     </ul>
-                    <ul class="navbar-nav ml-auto mb-2 mb-lg-0">   
+                    <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                     <!-- Decide whether to show login or logout button based on whether user is authenticated -->
                         <?php if ($authenticated) { ?>
                         <li class="nav-item ml-auto">
@@ -119,12 +119,13 @@
     <!-- CARDS -->
     <div class="row row-cols-1 row-cols-md-3 g-4 mt-3" style="margin: 0px">
         <div class="col d-flex justify-content-center">
-            <div class="card w-75 text-center">
+            <div class="card w-75 text-center centerCard">
                 <a href="?command=userpage"><img src="images/rabbit1.jpg" class="card-img-top"
                         alt="Go to profile feature, rabbit picture" /></a>
-                <div class="card-body">
+                <br />
+                <div class="card-body m-1">
                     <p class="card-title fw-bold">Organize</p>
-                    <p class="card-text">
+                    <p class="card-text" style="display:none;">
                         Use our organizing feature to simplify how you take care of your
                         pets.
                     </p>
@@ -135,12 +136,13 @@
             </div>
         </div>
         <div class="col d-flex justify-content-center">
-            <div class="card w-75 text-center">
+            <div class="card w-75 text-center centerCard">
                 <a href="?command=calendar"><img src="images/dog1.jpg" class="card-img-top"
                         alt="Go to calendar feature, cute dog" /></a>
-                <div class="card-body">
+                <br />
+                <div class="card-body m-1">
                     <p class="card-title fw-bold">Plan</p>
-                    <p class="card-text">
+                    <p class="card-text" style="display:none;">
                         We have an easy to use calendar you can use to organize important
                         pet-related dates.
                     </p>
@@ -151,12 +153,14 @@
             </div>
         </div>
         <div class="col d-flex justify-content-center">
-            <div class="card w-75 text-center">
+            <div class="card w-75 text-center centerCard">
                 <a href="#"><img src="images/cat1.jpg" class="card-img-top"
                         alt="Go to blog feature, cat with hairnet image" /></a>
-                <div class="card-body">
+                <br />
+
+                <div class="card-body m-1">
                     <p class="card-title fw-bold">Share</p>
-                    <p class="card-text">
+                    <p class="card-text" style="display:none;">
                         Share your pet-taking tips with other users by making pages about
                         your pet.
                     </p>
@@ -267,7 +271,21 @@
             </footer>
         </div>
     </div>
+    <script>
+      // hover effect to display card text
+      $(document).ready(function() {
 
+        $('.centerCard').hover(
+          function () {
+            $(".card-text", this).show();
+          },
+          function () {
+            $(".card-text", this).hide(); // hide card after hover
+          }
+        );
+
+      });
+    </script>
     <script src="scripts/less.js"></script>
     <script src="scripts/navlinks.js"></script>
 
