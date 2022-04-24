@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <!--
-
 *  REFERENCES
 *  Title: Bootstrap 5 Forms
 *  Author: MDBootstrap Team
 *  Code version: Bootstrap 5.1.1
 *  URL: https://mdbootstrap.com/docs/standard/forms/overview/
 *  Software License: MIT license
-*
-
 -->
 
 <html lang="en">

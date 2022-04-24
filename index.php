@@ -7,7 +7,7 @@
     5. https://www.kodingmadesimple.com/2015/01/convert-mysql-to-json-using-php.html (for SQL query to JSON conversion)
 */
 
-// Production URLs:
+// Production URL:
 // CS Server: https://cs4640.cs.virginia.edu/mjm7ngb/cs4640project
 
 // Register the autoloader
