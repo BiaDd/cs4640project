@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!--
 *  REFERENCES
+* 
 *  Title: Footer
 *  Author: Bootstrap Team
 *  Code version: Bootstrapv5.1
@@ -8,6 +9,7 @@
 *  Software License: MIT License
 *
 *  Calendar built with inspiration from this tutorial: https://www.youtube.com/watch?v=o1yMqPyYeAo&ab_channel=CodeAndCreate
+
 *  Used Bootstrap for calendar styling:
 *  URL: https://getbootstrap.com/docs/5.0/getting-started/introduction/ 
 *  VERSION: 5.1.1

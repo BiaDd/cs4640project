@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
 <!--
-
 *  REFERENCES
 *  Title: Modal
 *  Author: Bootstrap Team
@@ -9,8 +8,6 @@
 *  Code version: Bootstrapv5.0
 *  URL: https://getbootstrap.com/docs/5.0/components/modal/
 *  Software License: MIT license
-*
-
 -->
 
 <html lang="en">

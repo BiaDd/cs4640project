@@ -1,4 +1,7 @@
+// Author: Dan Do
 
+// ALerts user of specifics of incorrect input
+// i.e. "password must contain a special character" over "password must match pattern"
 
 // might change this to an anonymous function later?
 function validate () {

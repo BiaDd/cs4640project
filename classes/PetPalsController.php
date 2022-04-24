@@ -1,4 +1,7 @@
 <?php
+
+// Authors: Matthew Morelli & Dan Do
+
 class PetPalsController {
 
     private $command;

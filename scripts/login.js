@@ -1,3 +1,6 @@
+// Author: Dan Do
+// Added remember me logic that would be built upon later.
+
 function rememberUsername () {
   if (document.querySelector('#rememberMe').checked) {
     // set the username into localStorage if rememberMe is checked on submit
