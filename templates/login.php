@@ -128,14 +128,14 @@
 
             <!-- Submit button -->
             <div class="col text-center">
-              <button type="submit" class="btn btn-primary btn-block btn-lg" onclick="rememberUsername()">
+              <button id="loginButton" type="submit" class="btn btn-primary btn-block btn-lg" onclick="rememberUsername()">
                 <span>Sign in</span>
               </button>
             </div>
 
             <p class="text-center text-muted mt-5 mb-3">
               First visit?
-              <a href="?command=signup" class="fw-bold text-body"><u>Register here</u></a>
+              <a  href="?command=signup" class="fw-bold text-body"><u id="signUp">Register here</u></a>
             </p>
           </form>
         </div>
@@ -168,6 +168,16 @@
         if ($('#error-msg').text() == 'N/A') {
           $('#error-msg').hide();
         }
+
+
+        $('#signUp').hover(
+          function () {
+            $(this).css('color', '#186aed');
+          },
+          function () {
+            $(this).css('color', 'black');
+          }
+        );
       });
     </script>
 

@@ -125,7 +125,7 @@
 
             <p class="text-center text-muted mt-5 mb-3">
               Already have an account?
-              <a href="?command=login" class="fw-bold text-body"><u>Login here</u></a>
+              <a href="?command=login" class="fw-bold text-body"><u id="loginHere">Login here</u></a>
             </p>
 
             <!-- Submit button -->
@@ -160,7 +160,19 @@
 
     <script src="scripts/less.js"></script>
     <script src="scripts/signup.js"></script>
+    <script>
+    $(document).ready(function() {
 
+      $('#loginHere').hover(
+        function () {
+          $(this).css('color', '#186aed');
+        },
+        function () {
+          $(this).css('color', 'black');
+        }
+      );
+    });
+    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
