@@ -95,18 +95,18 @@
 
     <div>
       <div class="row justify-content-center">
-        <div class="col-8 my-3">
+        <div class="col-8 mb-4 mt-5">
           <h1 class="fs-2 text-center p-4 rounded border" style="background-color: white;">
             <?= $user["username"] ?>'s Pets</h1>
           </div>
       </div>
       <div class="row justify-content-center">
-        <div class="btn-group col-4 mb-3">
-            <a href="#" class="btn btn-dark" role="button" data-bs-toggle="modal" data-bs-target="#addModal">
-                Add Pet
+        <div class="btn-group col-4 my-3">
+            <a href="#" class="btn btn-dark btn-lg" role="button" data-bs-toggle="modal" data-bs-target="#addModal">
+                <span class="align middle">Add Pet</span>
             </a>
             <?php if (empty($load_msg)) { ?> <!-- If there is no error message (the user has pets and they loaded successfully) -->
-            <a href="?command=exportpets" class="btn btn-success" role="button">
+            <a href="?command=exportpets" class="btn btn-success btn-lg" role="button">
                 Export Pets (JSON)
             </a>
             <?php } else { ?>
@@ -131,7 +131,7 @@
       } else {
         echo "
         <div class='row justify-content-center'>
-        <div class='accordion w-50 col-6' id='petAccordion'>";
+        <div class='accordion w-50 col-6 my-3' id='petAccordion'>";
         foreach ($pets as $p) { // might want to change this name later
 
           echo "
